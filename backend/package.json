@@ -1,0 +1,19 @@
+{
+  "name": "opendata-backend",
+  "version": "1.0.0",
+  "description": "Backend for air quality monitoring - WAQI API integration",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node --env-file=.env server.js",
+    "dev": "node --env-file=.env --watch server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "node-fetch": "^3.3.2"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}
