@@ -1,0 +1,4030 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>Акимат Восточно-Казахстанской области — gov.kz</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+/* ===== ОБЩИЕ СТИЛИ И ПЕРЕМЕННЫЕ ===== */
+:root {
+  --primary: #2c3e8c;
+  --primary-light: #4457d4;
+  --secondary: #00b894;
+  --accent: #f39c12;
+  --danger: #e74c3c;
+  --warning: #f1c40f;
+  --success: #2ecc71;
+  --good: #00b894;
+  --moderate: #f1c40f;
+  --poor: #e74c3c;
+  --dark: #1a237e;
+  --light: #f8f9fa;
+  --gray: #6c757d;
+  --gray-light: #e9ecef;
+  --border-radius: 10px;
+  --shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 15px 40px rgba(0, 0, 0, 0.12);
+  --transition: all 0.3s ease;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, Arial, sans-serif;
+}
+
+body {
+  background-color: #f5f7fb;
+  color: #333;
+  line-height: 1.6;
+}
+
+.wrapper {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ===== ВЕРХНЯЯ ПАНЕЛЬ ===== */
+.top-header {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
+  color: white;
+  font-size: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.top-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 0;
+}
+
+.top-left {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.gov-logo {
+  font-weight: 700;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.gov-logo i {
+  color: var(--accent);
+}
+
+.top-menu {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.top-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: var(--transition);
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+
+.top-menu-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.top-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.lang-switcher {
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.lang-btn {
+  padding: 6px 14px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.lang-btn.active {
+  background-color: rgba(255, 255, 255, 0.2);
+  font-weight: 600;
+}
+
+.lang-btn:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.auth-btn {
+  background: white;
+  color: var(--primary);
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: var(--transition);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.auth-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== ЗАГОЛОВОК ===== */
+.header-block {
+  background: white;
+  padding: 30px 0;
+  margin: 20px 0;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.header-block::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--primary), var(--secondary));
+}
+
+.header-content {
+  padding: 0 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.3;
+}
+
+.header-subtitle {
+  font-size: 16px;
+  color: var(--gray);
+  margin-top: 8px;
+}
+
+.header-actions {
+  display: flex;
+  gap: 15px;
+}
+
+.header-btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.header-btn.primary {
+  background-color: var(--primary);
+  color: white;
+}
+
+.header-btn.secondary {
+  background-color: var(--gray-light);
+  color: var(--dark);
+}
+
+.header-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* ===== ВКЛАДКИ ===== */
+.tabs-container {
+  margin: 25px 0;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.tabs-header {
+  background: linear-gradient(to right, var(--primary), var(--primary-light));
+  display: flex;
+  padding: 0;
+}
+
+.tab {
+  padding: 18px 30px;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  border: none;
+  font-size: 16px;
+}
+
+.tab:hover, .tab.active {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.tab.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 20%;
+  width: 60%;
+  height: 3px;
+  background-color: var(--accent);
+  border-radius: 3px 3px 0 0;
+}
+
+.tab-content {
+  display: none;
+  background: white;
+  padding: 0;
+  animation: fadeIn 0.5s ease;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== ГЛАВНАЯ ВКЛАДКА (НОВОСТИ) ===== */
+.main-tab-content {
+  background: white;
+  border-radius: var(--border-radius);
+  padding: 0;
+}
+
+.news-section {
+  padding: 30px;
+}
+
+.section-title {
+  font-size: 24px;
+  color: var(--primary);
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid var(--gray-light);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-title i {
+  color: var(--accent);
+}
+
+.news-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+/* ===== ГЛАВНАЯ НОВОСТЬ ===== */
+.main-news {
+  background: white;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  position: relative;
+}
+
+.main-news:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+}
+
+.main-news img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  display: block;
+}
+
+.news-content {
+  padding: 25px;
+}
+
+.news-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.tag {
+  background: var(--secondary);
+  color: white;
+  font-size: 13px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.date {
+  color: var(--gray);
+  font-size: 14px;
+}
+
+.main-title {
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 15px;
+  color: var(--dark);
+}
+
+.news-excerpt {
+  color: var(--gray);
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.read-more {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.read-more:hover {
+  gap: 12px;
+  color: var(--primary-light);
+}
+
+/* ===== КАРТОЧКИ НОВОСТЕЙ ===== */
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 25px;
+}
+
+.card {
+  background: white;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+}
+
+.card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  display: block;
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.card-title {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.4;
+  margin-bottom: 10px;
+  color: var(--dark);
+}
+
+.card-date {
+  font-size: 13px;
+  color: var(--gray);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ===== БЛОК НОВОСТЕЙ ===== */
+.news-list {
+  background: white;
+  border-radius: var(--border-radius);
+  padding: 25px;
+  box-shadow: var(--shadow);
+  height: fit-content;
+}
+
+.news-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.news-list-header h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--dark);
+  margin: 0;
+}
+
+.section-link {
+  font-size: 14px;
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.news-item {
+  padding: 15px 0;
+  border-bottom: 1px solid var(--gray-light);
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.news-item:last-child {
+  border-bottom: none;
+}
+
+.news-item:hover {
+  padding-left: 10px;
+}
+
+.news-date {
+  font-size: 13px;
+  color: var(--secondary);
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.news-text {
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.green-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+  width: 100%;
+  background: linear-gradient(to right, var(--secondary), #00a085);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.green-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 184, 148, 0.3);
+}
+
+/* ===== БЛОК "ВАЖНО" ===== */
+.important {
+  background: white;
+  border-radius: var(--border-radius);
+  padding: 25px;
+  box-shadow: var(--shadow);
+  height: fit-content;
+}
+
+.important h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.important h3 i {
+  color: var(--accent);
+}
+
+.important-item {
+  padding: 12px 0;
+  border-bottom: 1px solid var(--gray-light);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.important-item:last-child {
+  border-bottom: none;
+}
+
+.important-item:hover {
+  padding-left: 10px;
+  color: var(--primary);
+}
+
+.important-item i {
+  color: var(--primary-light);
+  width: 20px;
+}
+
+/* ===== НИЖНИЕ БАННЕРЫ ===== */
+.bottom-banners {
+  margin: 40px 0;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 25px;
+}
+
+.banner {
+  background: linear-gradient(135deg, var(--primary) 0%, #3a4bb3 100%);
+  border-radius: var(--border-radius);
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--shadow);
+  color: white;
+  transition: var(--transition);
+  cursor: pointer;
+  min-height: 140px;
+}
+
+.banner:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+}
+
+.banner-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.banner-title {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.banner-text {
+  font-size: 15px;
+  opacity: 0.9;
+}
+
+.banner-icon {
+  font-size: 40px;
+  opacity: 0.8;
+}
+
+.banner.secondary {
+  background: linear-gradient(135deg, #00b894 0%, #00a085 100%);
+}
+
+/* ===== СЕРВИСЫ ===== */
+.services {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin: 40px 0 60px;
+}
+
+.service {
+  background: white;
+  border-radius: var(--border-radius);
+  padding: 30px 20px;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.service:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
+}
+
+.service-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--primary-light), var(--primary));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  color: white;
+  font-size: 24px;
+}
+
+.service-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.service-text {
+  font-size: 13px;
+  color: var(--gray);
+  margin-top: 8px;
+}
+
+/* ===== СТИЛИ ДЛЯ ВКЛАДКИ AI-PROCURE ===== */
+.ai-procure {
+  background: white;
+  border-radius: var(--border-radius);
+  padding: 30px;
+}
+
+.procure-dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* СТАТИСТИКА */
+.procure-stats {
+  margin-bottom: 20px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.stat-card {
+  background: white;
+  border-radius: var(--border-radius);
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  border-left: 4px solid var(--primary);
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+}
+
+.stat-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 20px;
+}
+
+.stat-content {
+  flex: 1;
+}
+
+.stat-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 5px;
+}
+
+.stat-label {
+  font-size: 14px;
+  color: var(--gray);
+  margin-bottom: 8px;
+}
+
+.stat-change {
+  font-size: 12px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.stat-change.positive {
+  color: var(--success);
+}
+
+.stat-change.negative {
+  color: var(--danger);
+}
+
+/* ФИЛЬТРЫ */
+.procure-filters {
+  background: var(--light);
+  border-radius: var(--border-radius);
+  padding: 25px;
+}
+
+.filter-group {
+  margin-bottom: 20px;
+}
+
+.filter-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.filter-controls {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.filter-select {
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: 1px solid var(--gray-light);
+  background: white;
+  font-size: 14px;
+  color: var(--dark);
+  min-width: 180px;
+  cursor: pointer;
+}
+
+.filter-btn {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: var(--transition);
+  border: none;
+}
+
+.filter-btn.primary {
+  background: var(--primary);
+  color: white;
+}
+
+.filter-btn.secondary {
+  background: var(--gray-light);
+  color: var(--dark);
+}
+
+.filter-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 8px;
+  padding: 10px 15px;
+  border: 1px solid var(--gray-light);
+}
+
+.search-box i {
+  color: var(--gray);
+  margin-right: 10px;
+}
+
+.search-box input {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+.search-btn {
+  background: var(--primary);
+  color: white;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.search-btn:hover {
+  background: var(--primary-light);
+  transform: translateX(2px);
+}
+
+/* СПИСОК ТЕНДЕРОВ */
+.tenders-list {
+  background: white;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.list-header {
+  padding: 20px 25px;
+  border-bottom: 1px solid var(--gray-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.list-header h3 {
+  font-size: 18px;
+  color: var(--dark);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.list-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.list-btn {
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: var(--transition);
+  border: 1px solid var(--gray-light);
+  background: white;
+  color: var(--dark);
+}
+
+.list-btn.primary {
+  background: var(--primary);
+  color: white;
+  border: none;
+}
+
+.list-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* ТАБЛИЦА ТЕНДЕРОВ */
+.tenders-table {
+  padding: 0 25px;
+}
+
+.table-header {
+  display: flex;
+  background: var(--light);
+  border-radius: 8px;
+  padding: 15px 20px;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 10px;
+}
+
+.table-col {
+  padding: 0 10px;
+}
+
+.table-body {
+  min-height: 400px;
+}
+
+.table-row {
+  display: flex;
+  padding: 20px;
+  border-bottom: 1px solid var(--gray-light);
+  align-items: center;
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.table-row:hover {
+  background: rgba(0, 0, 0, 0.02);
+  transform: translateX(5px);
+}
+
+.table-cell {
+  padding: 0 10px;
+}
+
+.tender-title {
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 5px;
+}
+
+.tender-org {
+  font-size: 13px;
+  color: var(--gray);
+}
+
+.tender-amount {
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--primary);
+}
+
+.tender-date {
+  font-size: 14px;
+  color: var(--dark);
+}
+
+.tender-status {
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+.status-active { background: rgba(46, 204, 113, 0.2); color: var(--success); }
+.status-completed { background: rgba(52, 152, 219, 0.2); color: #3498db; }
+.status-cancelled { background: rgba(231, 76, 60, 0.2); color: var(--danger); }
+
+.tender-risk {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.risk-low { color: var(--success); }
+.risk-medium { color: var(--warning); }
+.risk-high { color: var(--danger); }
+
+.table-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.action-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--light);
+  color: var(--dark);
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.action-btn:hover {
+  background: var(--primary);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.table-footer {
+  padding: 20px 25px;
+  border-top: 1px solid var(--gray-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.page-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border: 1px solid var(--gray-light);
+  color: var(--dark);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.page-btn:hover, .page-active {
+  background: var(--primary);
+  color: white;
+  border-color: var(--primary);
+}
+
+.page-dots {
+  margin: 0 5px;
+}
+
+.table-info {
+  font-size: 14px;
+  color: var(--gray);
+}
+
+/* AI-АНАЛИЗ */
+.ai-analysis-section {
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.analysis-header {
+  padding: 20px 25px;
+  border-bottom: 1px solid var(--gray-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.analysis-header h3 {
+  font-size: 18px;
+  color: var(--dark);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.analysis-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.analysis-btn {
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: var(--transition);
+  border: 1px solid var(--gray-light);
+  background: white;
+  color: var(--dark);
+}
+
+.analysis-btn:hover {
+  background: var(--light);
+  transform: translateY(-2px);
+}
+
+.analysis-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 25px;
+  padding: 25px;
+}
+
+.analysis-main {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.analysis-card {
+  background: var(--light);
+  border-radius: var(--border-radius);
+  padding: 25px;
+}
+
+.analysis-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.analysis-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.analysis-item {
+  padding: 15px;
+  background: white;
+  border-radius: var(--border-radius);
+  border-left: 4px solid var(--primary);
+}
+
+.analysis-item.warning {
+  border-left-color: var(--warning);
+}
+
+.analysis-item.success {
+  border-left-color: var(--success);
+}
+
+.analysis-item-title {
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.analysis-item-text {
+  font-size: 14px;
+  color: var(--gray);
+  line-height: 1.5;
+}
+
+.analysis-sidebar .analysis-card {
+  height: 100%;
+}
+
+.chart-placeholder {
+  height: 200px;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  border-radius: var(--border-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gray);
+  font-size: 14px;
+}
+
+/* ПРЕДСКАЗАНИЯ */
+.predictions-section {
+  background: white;
+  border-radius: var(--border-radius);
+  padding: 25px;
+  box-shadow: var(--shadow);
+}
+
+.predictions-section h3 {
+  font-size: 18px;
+  color: var(--dark);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.predictions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.prediction-card {
+  padding: 20px;
+  border-radius: var(--border-radius);
+  border: 1px solid var(--gray-light);
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.prediction-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+}
+
+.prediction-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.prediction-content {
+  flex: 1;
+}
+
+.prediction-title {
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.prediction-text {
+  font-size: 14px;
+  color: var(--gray);
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+.prediction-confidence {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.confidence-label {
+  font-size: 12px;
+  color: var(--gray);
+}
+
+.confidence-value {
+  font-weight: 700;
+  font-size: 14px;
+  padding: 4px 10px;
+  border-radius: 12px;
+}
+
+.confidence-value.high { background: rgba(46, 204, 113, 0.2); color: var(--success); }
+.confidence-value.medium { background: rgba(241, 196, 15, 0.2); color: var(--warning); }
+.confidence-value.low { background: rgba(231, 76, 60, 0.2); color: var(--danger); }
+
+/* ===== СТИЛИ ДЛЯ ВКЛАДКИ МОНИТОРИНГА ВОЗДУХА ===== */
+.air-monitoring {
+  background: white;
+  border-radius: var(--border-radius);
+  padding: 30px;
+}
+
+.air-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--gray-light);
+}
+
+.air-title {
+  font-size: 24px;
+  color: var(--primary);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.city-selector {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: var(--light);
+  padding: 12px 20px;
+  border-radius: var(--border-radius);
+}
+
+.city-label {
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.city-name {
+  font-weight: 700;
+  color: var(--primary);
+  font-size: 18px;
+}
+
+/* ===== ОСНОВНАЯ ИНФОРМАЦИЯ О КАЧЕСТВЕ ВОЗДУХА ===== */
+.air-quality-main {
+  background: linear-gradient(135deg, #e8f4f8, #f0f9ff);
+  padding: 30px;
+  border-radius: var(--border-radius);
+  margin-bottom: 30px;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 30px;
+  align-items: center;
+}
+
+.aqi-container {
+  text-align: center;
+}
+
+.aqi-value {
+  font-size: 72px;
+  font-weight: 800;
+  line-height: 1;
+  margin-bottom: 10px;
+}
+
+.aqi-label {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.aqi-description {
+  font-size: 16px;
+  color: var(--gray);
+}
+
+.quality-details {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.quality-detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+.detail-name {
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.detail-value {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+/* Цветовые стили для качества воздуха */
+.aqi-good { color: var(--good); }
+.aqi-moderate { color: var(--moderate); }
+.aqi-poor { color: var(--poor); }
+
+.bg-good { background: rgba(0, 184, 148, 0.1); }
+.bg-moderate { background: rgba(241, 196, 15, 0.1); }
+.bg-poor { background: rgba(231, 76, 60, 0.1); }
+
+.quality-good { color: var(--good); }
+.quality-moderate { color: var(--moderate); }
+.quality-poor { color: var(--poor); }
+
+/* ===== КАРТА РАЙОНОВ УСТЬ-КАМЕНОГОРСКА ===== */
+.city-map-section {
+  margin-bottom: 30px;
+}
+
+.map-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.city-map {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  border-radius: var(--border-radius);
+  height: 400px;
+  position: relative;
+  overflow: hidden;
+}
+
+.district-marker {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+  font-weight: 600;
+  font-size: 12px;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  padding: 5px;
+}
+
+.district-marker:hover {
+  transform: scale(1.1);
+  z-index: 10;
+}
+
+.district-aqi {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 2px;
+}
+
+/* Позиции районов на карте */
+.district-center { top: 30%; left: 50%; transform: translate(-50%, -50%); }
+.district-north { top: 15%; left: 60%; }
+.district-south { top: 65%; left: 40%; }
+.district-east { top: 40%; left: 75%; }
+.district-west { top: 35%; left: 25%; }
+.district-industry { top: 50%; left: 65%; }
+.district-new { top: 20%; left: 35%; }
+
+/* ===== ДЕТАЛИЗАЦИЯ ПО РАЙОНАМ ===== */
+.districts-details {
+  margin-bottom: 30px;
+}
+
+.districts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.district-card {
+  background: white;
+  padding: 25px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  border: 3px solid transparent;
+}
+
+.district-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+}
+
+.district-card.good { border-color: var(--good); }
+.district-card.moderate { border-color: var(--moderate); }
+.district-card.poor { border-color: var(--poor); }
+
+.district-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.district-card-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.district-card-aqi {
+  font-size: 28px;
+  font-weight: 700;
+  padding: 5px 15px;
+  border-radius: 20px;
+  background: var(--light);
+}
+
+.pollutants-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.pollutant-card {
+  padding: 12px;
+  border-radius: var(--border-radius);
+  background: var(--light);
+}
+
+.pollutant-name {
+  font-size: 13px;
+  color: var(--gray);
+  margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.pollutant-value {
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.pollutant-status {
+  font-size: 12px;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-weight: 600;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.status-good { background: rgba(0, 184, 148, 0.2); color: var(--good); }
+.status-moderate { background: rgba(241, 196, 15, 0.2); color: var(--moderate); }
+.status-poor { background: rgba(231, 76, 60, 0.2); color: var(--poor); }
+
+/* ===== ГРАФИКИ И ТЕНДЕНЦИИ ===== */
+.air-charts {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+.chart-container {
+  background: white;
+  padding: 25px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+.chart-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: var(--dark);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.chart-placeholder {
+  height: 300px;
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  border-radius: var(--border-radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gray);
+  font-size: 16px;
+  position: relative;
+}
+
+.chart-legend {
+  display: flex;
+  gap: 15px;
+  margin-top: 15px;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+}
+
+.legend-color {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.legend-good { background-color: var(--good); }
+.legend-moderate { background-color: var(--moderate); }
+.legend-poor { background-color: var(--poor); }
+
+/* ===== РЕКОМЕНДАЦИИ ===== */
+.air-recommendations {
+  background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+  padding: 25px;
+  border-radius: var(--border-radius);
+  margin-bottom: 30px;
+}
+
+.recommendations-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--dark);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.recommendations-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.recommendation-card {
+  background: white;
+  padding: 20px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.recommendation-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-hover);
+}
+
+.recommendation-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+  font-size: 20px;
+  color: white;
+}
+
+.recommendation-icon.good { background: var(--good); }
+.recommendation-icon.moderate { background: var(--moderate); }
+.recommendation-icon.poor { background: var(--poor); }
+
+.recommendation-title {
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: var(--dark);
+}
+
+.recommendation-text {
+  font-size: 14px;
+  color: var(--gray);
+  line-height: 1.5;
+}
+
+/* ===== ИСТОЧНИКИ ДАННЫХ ===== */
+.data-sources {
+  background: var(--light);
+  padding: 20px;
+  border-radius: var(--border-radius);
+  font-size: 14px;
+  color: var(--gray);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.data-sources i {
+  color: var(--primary);
+}
+
+/* ===== ФУТЕР ===== */
+.footer {
+  background: var(--dark);
+  color: white;
+  padding: 40px 0 20px;
+  margin-top: 40px;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.footer-column h4 {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: white;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.footer-column h4::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background-color: var(--accent);
+}
+
+.footer-links {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.footer-links a:hover {
+  color: white;
+  padding-left: 5px;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+}
+
+.social-links a {
+  color: white;
+  font-size: 18px;
+  transition: var(--transition);
+}
+
+.social-links a:hover {
+  color: var(--accent);
+  transform: translateY(-3px);
+}
+
+/* ===== МОДАЛЬНЫЕ ОКНА ===== */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.modal-content {
+  background: white;
+  border-radius: var(--border-radius);
+  max-width: 800px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-hover);
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-header {
+  padding: 25px;
+  border-bottom: 1px solid var(--gray-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-title {
+  font-size: 22px;
+  color: var(--primary);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.close-modal {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--gray);
+  transition: var(--transition);
+}
+
+.close-modal:hover {
+  color: var(--dark);
+  transform: rotate(90deg);
+}
+
+.modal-body {
+  padding: 25px;
+}
+
+/* ===== АДАПТИВНОСТЬ ===== */
+@media (max-width: 1200px) {
+  .news-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .services {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .districts-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .air-charts {
+    grid-template-columns: 1fr;
+  }
+  
+  .recommendations-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .air-quality-main {
+    grid-template-columns: 1fr;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .predictions-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .analysis-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .news-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .cards {
+    grid-template-columns: 1fr;
+  }
+  
+  .bottom-banners {
+    grid-template-columns: 1fr;
+  }
+  
+  .header-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  
+  .tabs-header {
+    flex-direction: column;
+  }
+  
+  .tab {
+    justify-content: center;
+    padding: 15px;
+  }
+  
+  .services {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-content {
+    grid-template-columns: 1fr;
+  }
+  
+  .footer-bottom {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+  
+  .air-header {
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  
+  .districts-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .recommendations-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .city-map {
+    height: 300px;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .predictions-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .table-header, .table-row {
+    flex-wrap: wrap;
+  }
+  
+  .table-col, .table-cell {
+    width: 50%;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .top-flex {
+    flex-direction: column;
+    gap: 15px;
+    align-items: flex-start;
+  }
+  
+  .top-left, .top-right {
+    width: 100%;
+  }
+  
+  .top-menu {
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+  
+  .district-marker {
+    width: 60px;
+    height: 60px;
+    font-size: 10px;
+  }
+  
+  .district-aqi {
+    font-size: 16px;
+  }
+  
+  .filter-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .filter-select, .filter-btn {
+    width: 100%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ВЕРХНЯЯ ПАНЕЛЬ -->
+<div class="top-header">
+  <div class="wrapper top-flex">
+    <div class="top-left">
+      <div class="gov-logo">
+        <i class="fas fa-landmark"></i>
+        gov.kz
+      </div>
+      <div class="top-menu">
+        <div class="top-menu-item">
+          <i class="fas fa-building"></i>
+          Государственные органы
+          <i class="fas fa-chevron-down"></i>
+        </div>
+        <div class="top-menu-item">
+          <i class="fas fa-map-marker-alt"></i>
+          ВКО
+        </div>
+      </div>
+    </div>
+    <div class="top-right">
+      <div class="lang-switcher">
+        <div class="lang-btn active">RU</div>
+        <div class="lang-btn">KK</div>
+        <div class="lang-btn">EN</div>
+      </div>
+      <div class="auth-btn">
+        <i class="fas fa-user"></i>
+        Авторизация
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ОСНОВНОЙ КОНТЕНТ -->
+<div class="wrapper">
+
+  <!-- ЗАГОЛОВОК -->
+  <div class="header-block">
+    <div class="header-content">
+      <div>
+        <div class="header-title">Акимат Восточно-Казахстанской области</div>
+        <div class="header-subtitle">Официальный сайт государственного органа</div>
+      </div>
+      <div class="header-actions">
+        <div class="header-btn primary">
+          <i class="fas fa-headset"></i>
+          Онлайн-приемная
+        </div>
+        <div class="header-btn secondary">
+          <i class="fas fa-phone-alt"></i>
+          Контакты
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ВКЛАДКИ -->
+  <div class="tabs-container">
+    <div class="tabs-header">
+      <button class="tab active" data-tab="main">
+        <i class="fas fa-newspaper"></i>
+        Новости города
+      </button>
+      <button class="tab" data-tab="ai-procure">
+        <i class="fas fa-robot"></i>
+        AI-Procure
+      </button>
+      <button class="tab" data-tab="air">
+        <i class="fas fa-wind"></i>
+        Мониторинг воздуха
+      </button>
+    </div>
+
+    <!-- ГЛАВНАЯ ВКЛАДКА (НОВОСТИ) -->
+    <div class="tab-content active" id="main-tab">
+      <div class="main-tab-content">
+        <div class="news-section">
+          <h2 class="section-title">
+            <i class="fas fa-newspaper"></i>
+            Последние новости Восточно-Казахстанской области
+          </h2>
+          
+          <div class="news-grid">
+            <!-- ЛЕВАЯ КОЛОНКА -->
+            <div>
+              <!-- ГЛАВНАЯ НОВОСТЬ -->
+              <div class="main-news">
+                <img src="https://images.unsplash.com/photo-1519677100202-56bd1ac61049?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Зимний туризм в ВКО">
+                <div class="news-content">
+                  <div class="news-meta">
+                    <div class="tag">
+                      <i class="fas fa-calendar-alt"></i>
+                      06 декабря 2025
+                    </div>
+                    <div class="date">Актуально до 31.01.2026</div>
+                  </div>
+                  <h2 class="main-title">В ВКО официально открыт зимний туристический сезон</h2>
+                  <p class="news-excerpt">В Восточно-Казахстанской области состоялась торжественная церемония открытия зимнего туристического сезона. Гостей ждут новые горнолыжные трассы, экскурсионные маршруты и культурные мероприятия.</p>
+                  <a href="#" class="read-more">
+                    Читать полностью
+                    <i class="fas fa-arrow-right"></i>
+                  </a>
+                </div>
+              </div>
+
+              <!-- КАРТОЧКИ НОВОСТЕЙ -->
+              <div class="cards">
+                <div class="card">
+                  <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Художественная гимнастика">
+                  <div class="card-content">
+                    <h3 class="card-title">В ВКО завершился международный турнир по художественной гимнастике</h3>
+                    <div class="card-date">
+                      <i class="far fa-clock"></i>
+                      08 декабря 2025
+                    </div>
+                  </div>
+                </div>
+
+                <div class="card">
+                  <img src="https://images.unsplash.com/photo-1546519638-68e109498ffc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Спортивная победа">
+                  <div class="card-content">
+                    <h3 class="card-title">Спортсмен из ВКО завоевал золотую медаль на чемпионате мира</h3>
+                    <div class="card-date">
+                      <i class="far fa-clock"></i>
+                      08 декабря 2025
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- БЛОК НОВОСТЕЙ -->
+            <div class="news-list">
+              <div class="news-list-header">
+                <h3>Свежие новости</h3>
+                <a href="#" class="section-link">
+                  Все новости
+                  <i class="fas fa-arrow-right"></i>
+                </a>
+              </div>
+              
+              <div class="news-item">
+                <div class="news-date">06 декабря 2025</div>
+                <div class="news-text">В Катон-Карагае запускают новый центр сервиса для населения</div>
+              </div>
+              
+              <div class="news-item">
+                <div class="news-date">05 декабря 2025</div>
+                <div class="news-text">Стартовали Дни культуры Уланского района в областном центре</div>
+              </div>
+              
+              <div class="news-item">
+                <div class="news-date">05 декабря 2025</div>
+                <div class="news-text">Определены победители региональной премии «Алтын сапа»</div>
+              </div>
+              
+              <div class="news-item">
+                <div class="news-date">04 декабря 2025</div>
+                <div class="news-text">Музыкальная традиция «Туған жер» получила государственную поддержку</div>
+              </div>
+              
+              <div class="news-item">
+                <div class="news-date">03 декабря 2025</div>
+                <div class="news-text">В Усть-Каменогорске открыли новый детский сад на 200 мест</div>
+              </div>
+              
+              <div class="news-item">
+                <div class="news-date">02 декабря 2025</div>
+                <div class="news-text">Ремонт дорог на центральных улицах завершится к Новому году</div>
+              </div>
+              
+              <button class="green-btn">
+                <i class="fas fa-list"></i>
+                Архив новостей
+              </button>
+            </div>
+
+            <!-- БЛОК "ВАЖНО" -->
+            <div class="important">
+              <h3>
+                <i class="fas fa-exclamation-circle"></i>
+                Важно
+              </h3>
+              
+              <div class="important-item">
+                <i class="fas fa-user-circle"></i>
+                <span>Центр приема граждан</span>
+              </div>
+              
+              <div class="important-item">
+                <i class="fas fa-users"></i>
+                <span>Для населения</span>
+              </div>
+              
+              <div class="important-item">
+                <i class="fas fa-bell"></i>
+                <span>Оповещения по ВКО</span>
+              </div>
+              
+              <div class="important-item">
+                <i class="fas fa-poll"></i>
+                <span>Опросы и голосования</span>
+              </div>
+              
+              <div class="important-item">
+                <i class="fas fa-chart-line"></i>
+                <span>Инвестиционные проекты</span>
+              </div>
+              
+              <div class="important-item">
+                <i class="fas fa-umbrella-beach"></i>
+                <span>Пляжи ВКО</span>
+              </div>
+              
+              <div class="important-item">
+                <i class="fas fa-life-ring"></i>
+                <span>Жизненные ситуации</span>
+              </div>
+              
+              <div class="important-item">
+                <i class="fas fa-coins"></i>
+                <span>Открытые бюджеты</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- НИЖНИЕ БАННЕРЫ -->
+          <div class="bottom-banners">
+            <div class="banner">
+              <div class="banner-content">
+                <div class="banner-title">QAZAQSTAN EXPORTAL</div>
+                <div class="banner-text">Платформа для экспортеров Восточно-Казахстанской области</div>
+              </div>
+              <div class="banner-icon">
+                <i class="fas fa-globe-asia"></i>
+              </div>
+            </div>
+            
+            <div class="banner secondary">
+              <div class="banner-content">
+                <div class="banner-title">АГЕНТСТВО ПО ФИНАНСОВОМУ МОНИТОРИНГУ</div>
+                <div class="banner-text">Обновление данных • 14:58</div>
+              </div>
+              <div class="banner-icon">
+                <i class="fas fa-chart-bar"></i>
+              </div>
+            </div>
+          </div>
+
+          <!-- СЕРВИСЫ -->
+          <div class="services">
+            <div class="service">
+              <div class="service-icon">
+                <i class="fas fa-user-friends"></i>
+              </div>
+              <div class="service-title">Для населения</div>
+              <div class="service-text">Госуслуги и сервисы</div>
+            </div>
+            
+            <div class="service">
+              <div class="service-icon">
+                <i class="fas fa-comments"></i>
+              </div>
+              <div class="service-title">Центр приема граждан</div>
+              <div class="service-text">Запись на прием онлайн</div>
+            </div>
+            
+            <div class="service">
+              <div class="service-icon">
+                <i class="fas fa-bell"></i>
+              </div>
+              <div class="service-title">Оповещения по ВКО</div>
+              <div class="service-text">Экстренные сообщения</div>
+            </div>
+            
+            <div class="service">
+              <div class="service-icon">
+                <i class="fas fa-hands-helping"></i>
+              </div>
+              <div class="service-title">Общественный совет</div>
+              <div class="service-text">Участие в принятии решений</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ВКЛАДКА AI-PROCURE -->
+    <div class="tab-content" id="ai-procure-tab">
+      <div class="ai-procure">
+        <!-- ЗАГОЛОВОК -->
+        <div class="air-header">
+          <h1 class="air-title">
+            <i class="fas fa-robot"></i>
+            AI-Procure — Интеллектуальный анализ закупок
+          </h1>
+          <div class="city-selector">
+            <span class="city-label">Режим:</span>
+            <span class="city-name" id="ai-mode">Анализ тендеров</span>
+          </div>
+        </div>
+
+        <!-- ОСНОВНОЙ БЛОК С ДАННЫМИ -->
+        <div class="procure-dashboard">
+          <!-- СТАТИСТИКА В РЕАЛЬНОМ ВРЕМЕНИ -->
+          <div class="procure-stats">
+            <div class="stats-grid">
+              <div class="stat-card">
+                <div class="stat-icon" style="background: linear-gradient(135deg, #2c3e8c, #4457d4);">
+                  <i class="fas fa-file-contract"></i>
+                </div>
+                <div class="stat-content">
+                  <div class="stat-value" id="total-tenders">1,247</div>
+                  <div class="stat-label">Активных тендеров</div>
+                  <div class="stat-change positive">
+                    <i class="fas fa-arrow-up"></i>
+                    +12% за неделю
+                  </div>
+                </div>
+              </div>
+              
+              <div class="stat-card">
+                <div class="stat-icon" style="background: linear-gradient(135deg, #00b894, #00a085);">
+                  <i class="fas fa-tenge-sign"></i>
+                </div>
+                <div class="stat-content">
+                  <div class="stat-value" id="total-sum">245.7 млрд ₸</div>
+                  <div class="stat-label">Общая сумма закупок</div>
+                  <div class="stat-change positive">
+                    <i class="fas fa-arrow-up"></i>
+                    +8% за месяц
+                  </div>
+                </div>
+              </div>
+              
+              <div class="stat-card">
+                <div class="stat-icon" style="background: linear-gradient(135deg, #f39c12, #e67e22);">
+                  <i class="fas fa-building"></i>
+                </div>
+                <div class="stat-content">
+                  <div class="stat-value" id="active-organizations">78</div>
+                  <div class="stat-label">Активных организаций</div>
+                  <div class="stat-change negative">
+                    <i class="fas fa-arrow-down"></i>
+                    -3% за неделю
+                  </div>
+                </div>
+              </div>
+              
+              <div class="stat-card">
+                <div class="stat-icon" style="background: linear-gradient(135deg, #9b59b6, #8e44ad);">
+                  <i class="fas fa-chart-pie"></i>
+                </div>
+                <div class="stat-content">
+                  <div class="stat-value" id="avg-savings">18.5%</div>
+                  <div class="stat-label">Средняя экономия</div>
+                  <div class="stat-change positive">
+                    <i class="fas fa-arrow-up"></i>
+                    +2.3% за квартал
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ФИЛЬТРЫ И ПОИСК -->
+          <div class="procure-filters">
+            <div class="filter-group">
+              <div class="filter-title">
+                <i class="fas fa-filter"></i>
+                Фильтры анализа
+              </div>
+              <div class="filter-controls">
+                <select class="filter-select" id="category-filter">
+                  <option value="all">Все категории</option>
+                  <option value="construction">Строительство</option>
+                  <option value="it">IT и технологии</option>
+                  <option value="medical">Медицина</option>
+                  <option value="education">Образование</option>
+                  <option value="transport">Транспорт</option>
+                  <option value="energy">Энергетика</option>
+                </select>
+                
+                <select class="filter-select" id="period-filter">
+                  <option value="week">За неделю</option>
+                  <option value="month" selected>За месяц</option>
+                  <option value="quarter">За квартал</option>
+                  <option value="year">За год</option>
+                </select>
+                
+                <select class="filter-select" id="status-filter">
+                  <option value="all">Все статусы</option>
+                  <option value="active">Активные</option>
+                  <option value="completed">Завершенные</option>
+                  <option value="cancelled">Отмененные</option>
+                </select>
+                
+                <button class="filter-btn primary" id="apply-filters">
+                  <i class="fas fa-search"></i>
+                  Применить
+                </button>
+                
+                <button class="filter-btn secondary" id="ai-analyze">
+                  <i class="fas fa-robot"></i>
+                  AI Анализ
+                </button>
+              </div>
+            </div>
+            
+            <div class="search-box">
+              <i class="fas fa-search"></i>
+              <input type="text" id="tender-search" placeholder="Поиск по тендерам, организациям, ключевым словам...">
+              <button class="search-btn">
+                <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- СПИСОК ТЕНДЕРОВ С AI-АНАЛИЗОМ -->
+          <div class="tenders-list">
+            <div class="list-header">
+              <h3>
+                <i class="fas fa-list-ol"></i>
+                Тендеры с AI-анализом рисков
+              </h3>
+              <div class="list-actions">
+                <button class="list-btn" id="export-data">
+                  <i class="fas fa-download"></i>
+                  Экспорт
+                </button>
+                <button class="list-btn primary" id="new-analysis">
+                  <i class="fas fa-plus"></i>
+                  Новый анализ
+                </button>
+              </div>
+            </div>
+            
+            <div class="tenders-table">
+              <div class="table-header">
+                <div class="table-col" style="width: 30%;">Тендер / Организация</div>
+                <div class="table-col" style="width: 15%;">Сумма</div>
+                <div class="table-col" style="width: 15%;">Срок</div>
+                <div class="table-col" style="width: 15%;">AI Оценка</div>
+                <div class="table-col" style="width: 15%;">Риски</div>
+                <div class="table-col" style="width: 10%;">Действия</div>
+              </div>
+              
+              <div class="table-body" id="tenders-table-body">
+                <!-- Тендеры будут загружены через JavaScript -->
+              </div>
+            </div>
+            
+            <div class="table-footer">
+              <div class="pagination">
+                <button class="page-btn">
+                  <i class="fas fa-chevron-left"></i>
+                </button>
+                <span class="page-active">1</span>
+                <button class="page-btn">2</button>
+                <button class="page-btn">3</button>
+                <span class="page-dots">...</span>
+                <button class="page-btn">10</button>
+                <button class="page-btn">
+                  <i class="fas fa-chevron-right"></i>
+                </button>
+              </div>
+              <div class="table-info">
+                Показано <span id="shown-count">8</span> из <span id="total-count">1,247</span> тендеров
+              </div>
+            </div>
+          </div>
+
+          <!-- AI-АНАЛИЗ И РЕКОМЕНДАЦИИ -->
+          <div class="ai-analysis-section">
+            <div class="analysis-header">
+              <h3>
+                <i class="fas fa-brain"></i>
+                AI-анализ и рекомендации
+              </h3>
+              <div class="analysis-controls">
+                <button class="analysis-btn" id="refresh-analysis">
+                  <i class="fas fa-sync-alt"></i>
+                  Обновить анализ
+                </button>
+              </div>
+            </div>
+            
+            <div class="analysis-content">
+              <div class="analysis-main">
+                <div class="analysis-card">
+                  <div class="analysis-title">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    Выявленные аномалии
+                  </div>
+                  <div class="analysis-list" id="anomalies-list">
+                    <!-- Аномалии будут загружены через JavaScript -->
+                  </div>
+                </div>
+                
+                <div class="analysis-card">
+                  <div class="analysis-title">
+                    <i class="fas fa-lightbulb"></i>
+                    Рекомендации по оптимизации
+                  </div>
+                  <div class="analysis-list" id="recommendations-list">
+                    <!-- Рекомендации будут загружены через JavaScript -->
+                  </div>
+                </div>
+              </div>
+              
+              <div class="analysis-sidebar">
+                <div class="analysis-card">
+                  <div class="analysis-title">
+                    <i class="fas fa-chart-pie"></i>
+                    Распределение по отраслям
+                  </div>
+                  <div class="chart-placeholder" id="sector-chart">
+                    Круговая диаграмма отраслей
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ПРЕДСКАЗАНИЯ И ТРЕНДЫ -->
+          <div class="predictions-section">
+            <h3>
+              <i class="fas fa-crystal-ball"></i>
+              Прогнозы и тренды на основе AI
+            </h3>
+            
+            <div class="predictions-grid">
+              <div class="prediction-card">
+                <div class="prediction-icon" style="background: rgba(46, 204, 113, 0.1); color: #2ecc71;">
+                  <i class="fas fa-arrow-trend-up"></i>
+                </div>
+                <div class="prediction-content">
+                  <div class="prediction-title">Рост в IT-секторе</div>
+                  <div class="prediction-text">Ожидается увеличение закупок IT-оборудования на 25% в следующем квартале</div>
+                  <div class="prediction-confidence">
+                    <div class="confidence-label">Достоверность:</div>
+                    <div class="confidence-value high">87%</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="prediction-card">
+                <div class="prediction-icon" style="background: rgba(231, 76, 60, 0.1); color: #e74c3c;">
+                  <i class="fas fa-exclamation-circle"></i>
+                </div>
+                <div class="prediction-content">
+                  <div class="prediction-title">Риск срывов сроков</div>
+                  <div class="prediction-text">В строительных тендерах высокий риск срыва сроков (42%)</div>
+                  <div class="prediction-confidence">
+                    <div class="confidence-label">Достоверность:</div>
+                    <div class="confidence-value medium">76%</div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="prediction-card">
+                <div class="prediction-icon" style="background: rgba(52, 152, 219, 0.1); color: #3498db;">
+                  <i class="fas fa-money-bill-trend-up"></i>
+                </div>
+                <div class="prediction-content">
+                  <div class="prediction-title">Оптимизация бюджета</div>
+                  <div class="prediction-text">AI рекомендует консолидацию закупок для экономии до 15%</div>
+                  <div class="prediction-confidence">
+                    <div class="confidence-label">Достоверность:</div>
+                    <div class="confidence-value high">92%</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ИСТОЧНИКИ ДАННЫХ -->
+          <div class="data-sources">
+            <i class="fas fa-database"></i>
+            <span>Данные обновлены: 08.12.2025 15:30 • Источники: Госзакупки РК, Открытые данные ВКО, Исторические данные 2018-2025</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ВКЛАДКА МОНИТОРИНГА ВОЗДУХА -->
+    <div class="tab-content" id="air-tab">
+      <div class="air-monitoring">
+        <!-- ЗАГОЛОВОК -->
+        <div class="air-header">
+          <h1 class="air-title">
+            <i class="fas fa-wind"></i>
+            Мониторинг качества воздуха в Усть-Каменогорске
+          </h1>
+          <div class="city-selector">
+            <span class="city-label">Город:</span>
+            <span class="city-name">Усть-Каменогорск</span>
+          </div>
+        </div>
+
+        <!-- ОСНОВНАЯ ИНФОРМАЦИЯ О КАЧЕСТВЕ ВОЗДУХА -->
+        <div class="air-quality-main">
+          <div class="aqi-container">
+            <div class="aqi-value aqi-good" id="main-aqi">42</div>
+            <div class="aqi-label">Индекс качества воздуха (AQI)</div>
+            <div class="aqi-description">Хорошее качество воздуха</div>
+          </div>
+          <div class="quality-details">
+            <div class="quality-detail">
+              <span class="detail-name">PM2.5</span>
+              <span class="detail-value quality-good">12 µg/m³</span>
+            </div>
+            <div class="quality-detail">
+              <span class="detail-name">PM10</span>
+              <span class="detail-value quality-good">24 µg/m³</span>
+            </div>
+            <div class="quality-detail">
+              <span class="detail-name">NO₂</span>
+              <span class="detail-value quality-moderate">18 µg/m³</span>
+            </div>
+            <div class="quality-detail">
+              <span class="detail-name">SO₂</span>
+              <span class="detail-value quality-good">3 µg/m³</span>
+            </div>
+            <div class="quality-detail">
+              <span class="detail-name">CO</span>
+              <span class="detail-value quality-good">0.8 mg/m³</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- КАРТА РАЙОНОВ -->
+        <div class="city-map-section">
+          <h3 class="map-title">
+            <i class="fas fa-map-marked-alt"></i>
+            Качество воздуха по районам Усть-Каменогорска
+          </h3>
+          <div class="city-map" id="city-map">
+            <!-- Маркеры районов будут добавлены через JavaScript -->
+          </div>
+        </div>
+
+        <!-- ДЕТАЛИЗАЦИЯ ПО РАЙОНАМ -->
+        <div class="districts-details">
+          <h3 class="map-title">
+            <i class="fas fa-info-circle"></i>
+            Подробные данные по районам
+          </h3>
+          <div class="districts-grid" id="districts-grid">
+            <!-- Карточки районов будут добавлены через JavaScript -->
+          </div>
+        </div>
+
+        <!-- ГРАФИКИ И ТЕНДЕНЦИИ -->
+        <div class="air-charts">
+          <div class="chart-container">
+            <h3 class="chart-title">
+              <i class="fas fa-chart-line"></i>
+              Динамика PM2.5 за последние 24 часа
+            </h3>
+            <div class="chart-placeholder" id="pm25-chart">
+              График изменения PM2.5
+            </div>
+            <div class="chart-legend">
+              <div class="legend-item">
+                <span class="legend-color legend-good"></span>
+                <span>Хорошо (0-15 µg/m³)</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-color legend-moderate"></span>
+                <span>Умеренно (16-35 µg/m³)</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-color legend-poor"></span>
+                <span>Плохо (36+ µg/m³)</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="chart-container">
+            <h3 class="chart-title">
+              <i class="fas fa-chart-bar"></i>
+              Сравнение районов по AQI
+            </h3>
+            <div class="chart-placeholder" id="aqi-comparison-chart">
+              Сравнительная диаграмма AQI
+            </div>
+            <div class="chart-legend">
+              <div class="legend-item">
+                <span class="legend-color legend-good"></span>
+                <span>Хорошо (0-50)</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-color legend-moderate"></span>
+                <span>Умеренно (51-100)</span>
+              </div>
+              <div class="legend-item">
+                <span class="legend-color legend-poor"></span>
+                <span>Плохо (101+)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- РЕКОМЕНДАЦИИ -->
+        <div class="air-recommendations">
+          <h3 class="recommendations-title">
+            <i class="fas fa-lightbulb"></i>
+            Рекомендации для жителей
+          </h3>
+          <div class="recommendations-grid">
+            <div class="recommendation-card">
+              <div class="recommendation-icon good">
+                <i class="fas fa-walking"></i>
+              </div>
+              <h4 class="recommendation-title">Прогулки на свежем воздухе</h4>
+              <p class="recommendation-text">Идеальное время для прогулок - утро и вечер в парках Центрального района.</p>
+            </div>
+            
+            <div class="recommendation-card">
+              <div class="recommendation-icon moderate">
+                <i class="fas fa-car"></i>
+              </div>
+              <h4 class="recommendation-title">Поездки на автомобиле</h4>
+              <p class="recommendation-text">В Промышленном районе рекомендуется использовать авто с закрытыми окнами.</p>
+            </div>
+            
+            <div class="recommendation-card">
+              <div class="recommendation-icon good">
+                <i class="fas fa-home"></i>
+              </div>
+              <h4 class="recommendation-title">Проветривание помещений</h4>
+              <p class="recommendation-text">Лучшее время для проветривания - с 6:00 до 10:00 утра.</p>
+            </div>
+            
+            <div class="recommendation-card">
+              <div class="recommendation-icon poor">
+                <i class="fas fa-mask"></i>
+              </div>
+              <h4 class="recommendation-title">Защита при загрязнении</h4>
+              <p class="recommendation-text">В районах с высоким AQI рекомендуется использовать защитные маски.</p>
+            </div>
+            
+            <div class="recommendation-card">
+              <div class="recommendation-icon good">
+                <i class="fas fa-child"></i>
+              </div>
+              <h4 class="recommendation-title">Занятия спортом</h4>
+              <p class="recommendation-text">Для занятий спортом выбирайте парки Западного и Нового районов.</p>
+            </div>
+            
+            <div class="recommendation-card">
+              <div class="recommendation-icon moderate">
+                <i class="fas fa-tree"></i>
+              </div>
+              <h4 class="recommendation-title">Озеленение территории</h4>
+              <p class="recommendation-text">Посадка деревьев помогает улучшить качество воздуха в микрорайонах.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ИСТОЧНИКИ ДАННЫХ -->
+        <div class="data-sources">
+          <i class="fas fa-database"></i>
+          <span>Данные обновлены: 08.12.2025 15:30 • Источники: Станции мониторинга Усть-Каменогорска, МЭ РК</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- ФУТЕР -->
+  <div class="footer">
+    <div class="wrapper">
+      <div class="footer-content">
+        <div class="footer-column">
+          <h4>Акимат ВКО</h4>
+          <ul class="footer-links">
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Об акимате</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Структура</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Руководство</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Контакты</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>Услуги</h4>
+          <ul class="footer-links">
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Для граждан</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Для бизнеса</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Электронное правительство</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Госзакупки</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>Информация</h4>
+          <ul class="footer-links">
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Пресс-центр</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Документы</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Открытые данные</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i> Статистика</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-column">
+          <h4>Контакты</h4>
+          <ul class="footer-links">
+            <li><a href="#"><i class="fas fa-map-marker-alt"></i> г. Усть-Каменогорск, ул. Казахстан, 18</a></li>
+            <li><a href="#"><i class="fas fa-phone"></i> 8 (7232) 26-10-10</a></li>
+            <li><a href="#"><i class="fas fa-envelope"></i> info@vko.gov.kz</a></li>
+            <li><a href="#"><i class="fas fa-clock"></i> Пн-Пт: 9:00-18:00</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div>© 2025 Акимат Восточно-Казахстанской области. Все права защищены.</div>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-telegram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Функционал переключения вкладок
+document.addEventListener('DOMContentLoaded', function() {
+  const tabs = document.querySelectorAll('.tab');
+  const tabContents = document.querySelectorAll('.tab-content');
+  
+  // Обработка кликов по вкладкам
+  tabs.forEach(tab => {
+    tab.addEventListener('click', function() {
+      const tabId = this.getAttribute('data-tab');
+      
+      // Убираем активный класс у всех вкладок и контента
+      tabs.forEach(t => t.classList.remove('active'));
+      tabContents.forEach(content => content.classList.remove('active'));
+      
+      // Добавляем активный класс текущей вкладке и контенту
+      this.classList.add('active');
+      document.getElementById(`${tabId}-tab`).classList.add('active');
+      
+      // Если открываем мониторинг воздуха, загружаем данные
+      if (tabId === 'air') {
+        loadAirQualityData();
+      }
+      
+      // Если открываем AI-Procure, загружаем данные
+      if (tabId === 'ai-procure') {
+        loadProcureData();
+      }
+    });
+  });
+  
+  // Данные по районам Усть-Каменогорска
+  const districtsData = [
+    {
+      id: 'center',
+      name: 'Центральный район',
+      aqi: 42,
+      quality: 'good',
+      pollutants: [
+        { name: 'PM2.5', value: '12 µg/m³', status: 'good' },
+        { name: 'PM10', value: '24 µg/m³', status: 'good' },
+        { name: 'NO₂', value: '18 µg/m³', status: 'moderate' },
+        { name: 'SO₂', value: '3 µg/m³', status: 'good' }
+      ],
+      description: 'Деловой и культурный центр города',
+      recommendations: 'Идеальное время для прогулок - утро и вечер'
+    },
+    {
+      id: 'north',
+      name: 'Северный район',
+      aqi: 58,
+      quality: 'moderate',
+      pollutants: [
+        { name: 'PM2.5', value: '15 µg/m³', status: 'moderate' },
+        { name: 'PM10', value: '28 µg/m³', status: 'moderate' },
+        { name: 'NO₂', value: '22 µg/m³', status: 'moderate' },
+        { name: 'SO₂', value: '5 µg/m³', status: 'good' }
+      ],
+      description: 'Жилой район с развитой инфраструктурой',
+      recommendations: 'Рекомендуется проветривание утром'
+    },
+    {
+      id: 'south',
+      name: 'Южный район',
+      aqi: 35,
+      quality: 'good',
+      pollutants: [
+        { name: 'PM2.5', value: '8 µg/m³', status: 'good' },
+        { name: 'PM10', value: '16 µg/m³', status: 'good' },
+        { name: 'NO₂', value: '12 µg/m³', status: 'good' },
+        { name: 'SO₂', value: '2 µg/m³', status: 'good' }
+      ],
+      description: 'Самый экологически чистый район',
+      recommendations: 'Отличное место для занятий спортом'
+    },
+    {
+      id: 'east',
+      name: 'Восточный район',
+      aqi: 65,
+      quality: 'moderate',
+      pollutants: [
+        { name: 'PM2.5', value: '18 µg/m³', status: 'moderate' },
+        { name: 'PM10', value: '32 µg/m³', status: 'moderate' },
+        { name: 'NO₂', value: '25 µg/m³', status: 'moderate' },
+        { name: 'SO₂', value: '7 µg/m³', status: 'moderate' }
+      ],
+      description: 'Промышленная зона с жилыми кварталами',
+      recommendations: 'Рекомендуется использовать маски'
+    },
+    {
+      id: 'west',
+      name: 'Западный район',
+      aqi: 48,
+      quality: 'good',
+      pollutants: [
+        { name: 'PM2.5', value: '10 µg/m³', status: 'good' },
+        { name: 'PM10', value: '19 µg/m³', status: 'good' },
+        { name: 'NO₂', value: '15 µg/m³', status: 'moderate' },
+        { name: 'SO₂', value: '4 µg/m³', status: 'good' }
+      ],
+      description: 'Новый развивающийся район',
+      recommendations: 'Хорошее качество воздуха для проживания'
+    },
+    {
+      id: 'industry',
+      name: 'Промышленный район',
+      aqi: 78,
+      quality: 'poor',
+      pollutants: [
+        { name: 'PM2.5', value: '25 µg/m³', status: 'poor' },
+        { name: 'PM10', value: '45 µg/m³', status: 'poor' },
+        { name: 'NO₂', value: '35 µg/m³', status: 'poor' },
+        { name: 'SO₂', value: '12 µg/m³', status: 'poor' }
+      ],
+      description: 'Промышленная зона предприятий',
+      recommendations: 'Рекомендуется ограничить пребывание'
+    },
+    {
+      id: 'new',
+      name: 'Новый район',
+      aqi: 32,
+      quality: 'good',
+      pollutants: [
+        { name: 'PM2.5', value: '7 µg/m³', status: 'good' },
+        { name: 'PM10', value: '14 µg/m³', status: 'good' },
+        { name: 'NO₂', value: '10 µg/m³', status: 'good' },
+        { name: 'SO₂', value: '2 µg/m³', status: 'good' }
+      ],
+      description: 'Современный жилой комплекс',
+      recommendations: 'Идеальное место для семей с детьми'
+    }
+  ];
+  
+  // Данные для AI-Procure
+  const tendersData = [
+    {
+      id: 1,
+      title: 'Строительство школы на 800 мест в г. Усть-Каменогорск',
+      organization: 'Акимат Усть-Каменогорска',
+      amount: '2.8 млрд ₸',
+      date: '15.12.2025',
+      status: 'active',
+      risk: 'low',
+      riskScore: 22,
+      category: 'construction',
+      description: 'Строительство современной школы с бассейном и спортивным комплексом',
+      aiAnalysis: 'Низкий риск, стабильный подрядчик, хорошая история исполнения'
+    },
+    {
+      id: 2,
+      title: 'Закупка медицинского оборудования для областной больницы',
+      organization: 'Управление здравоохранения ВКО',
+      amount: '1.2 млрд ₸',
+      date: '10.01.2026',
+      status: 'active',
+      risk: 'medium',
+      riskScore: 58,
+      category: 'medical',
+      description: 'МРТ аппараты, рентгеновские установки, лабораторное оборудование',
+      aiAnalysis: 'Средний риск из-за сложности оборудования и требований к установке'
+    },
+    {
+      id: 3,
+      title: 'IT-инфраструктура для цифровизации госуслуг',
+      organization: 'Центр цифровизации ВКО',
+      amount: '850 млн ₸',
+      date: '20.12.2025',
+      status: 'completed',
+      risk: 'low',
+      riskScore: 18,
+      category: 'it',
+      description: 'Серверное оборудование, системы хранения данных, сетевая инфраструктура',
+      aiAnalysis: 'Низкий риск, проверенный поставщик, хорошие отзывы'
+    },
+    {
+      id: 4,
+      title: 'Ремонт автомобильных дорог областного значения',
+      organization: 'Управление автомобильных дорог ВКО',
+      amount: '4.5 млрд ₸',
+      date: '05.01.2026',
+      status: 'active',
+      risk: 'high',
+      riskScore: 78,
+      category: 'transport',
+      description: 'Капитальный ремонт 50 км автомобильных дорог',
+      aiAnalysis: 'Высокий риск из-за сезонности работ и зависимости от погодных условий'
+    },
+    {
+      id: 5,
+      title: 'Поставка учебников для школ области',
+      organization: 'Управление образования ВКО',
+      amount: '650 млн ₸',
+      date: '28.12.2025',
+      status: 'cancelled',
+      risk: 'medium',
+      riskScore: 45,
+      category: 'education',
+      description: 'Учебники и учебные пособия для 1-11 классов',
+      aiAnalysis: 'Тендер отменен из-за несоответствия требованиям'
+    },
+    {
+      id: 6,
+      title: 'Модернизация системы уличного освещения',
+      organization: 'Акимат Усть-Каменогорска',
+      amount: '320 млн ₸',
+      date: '12.01.2026',
+      status: 'active',
+      risk: 'low',
+      riskScore: 25,
+      category: 'energy',
+      description: 'Замена светильников на энергосберегающие LED',
+      aiAnalysis: 'Низкий риск, простая реализация, быстрая окупаемость'
+    },
+    {
+      id: 7,
+      title: 'Закупка спецтехники для коммунальных служб',
+      organization: 'Управление ЖКХ ВКО',
+      amount: '1.1 млрд ₸',
+      date: '18.12.2025',
+      status: 'active',
+      risk: 'medium',
+      riskScore: 52,
+      category: 'transport',
+      description: 'Снегоуборочная техника, мусоровозы, поливомоечные машины',
+      aiAnalysis: 'Средний риск из-за длительных сроков поставки'
+    },
+    {
+      id: 8,
+      title: 'Разработка мобильного приложения для туристов ВКО',
+      organization: 'Управление туризма ВКО',
+      amount: '45 млн ₸',
+      date: '22.12.2025',
+      status: 'completed',
+      risk: 'low',
+      riskScore: 15,
+      category: 'it',
+      description: 'Мобильное приложение с картой достопримечательностей и маршрутов',
+      aiAnalysis: 'Низкий риск, небольшая сумма, опытный разработчик'
+    }
+  ];
+  
+  const anomaliesData = [
+    {
+      title: 'Необычно высокая цена',
+      description: 'Цена на строительные материалы на 35% выше среднерыночной',
+      type: 'warning'
+    },
+    {
+      title: 'Короткие сроки подачи',
+      description: 'Срок подачи заявок всего 3 дня вместо стандартных 10',
+      type: 'warning'
+    },
+    {
+      title: 'Один участник',
+      description: 'В 15% тендеров участвует только одна организация',
+      type: 'warning'
+    },
+    {
+      title: 'Экономия бюджета',
+      description: 'AI рекомендовал объединить 3 тендера, экономия 120 млн ₸',
+      type: 'success'
+    }
+  ];
+  
+  const recommendationsData = [
+    {
+      title: 'Объединение закупок',
+      description: 'Объединить закупки медицинского оборудования для 5 больниц',
+      type: 'success'
+    },
+    {
+      title: 'Изменение сроков',
+      description: 'Перенести сроки строительных тендеров на весенний период',
+      type: 'warning'
+    },
+    {
+      title: 'Оптимизация спецификаций',
+      description: 'Упростить технические требования для увеличения конкуренции',
+      type: 'success'
+    },
+    {
+      title: 'Предварительная квалификация',
+      description: 'Ввести предварительный отбор поставщиков для сложных проектов',
+      type: 'warning'
+    }
+  ];
+  
+  // Загрузка данных мониторинга воздуха
+  function loadAirQualityData() {
+    // Добавление маркеров на карту
+    createDistrictMarkers();
+    
+    // Создание карточек районов
+    createDistrictCards();
+    
+    // Обновление основного AQI
+    updateMainAQI();
+    
+    // Запуск обновления данных в реальном времени
+    startRealTimeUpdates();
+  }
+  
+  // Загрузка данных AI-Procure
+  function loadProcureData() {
+    // Загрузка списка тендеров
+    loadTendersTable();
+    
+    // Загрузка аномалий и рекомендаций
+    loadAnomalies();
+    loadRecommendations();
+    
+    // Инициализация обработчиков событий
+    initProcureEventListeners();
+    
+    // Обновление статистики
+    updateProcureStats();
+  }
+  
+  // Создание маркеров районов на карте
+  function createDistrictMarkers() {
+    const cityMap = document.getElementById('city-map');
+    cityMap.innerHTML = '';
+    
+    districtsData.forEach(district => {
+      const marker = document.createElement('div');
+      marker.className = `district-marker district-${district.id} bg-${district.quality}`;
+      marker.innerHTML = `
+        <div class="district-aqi">${district.aqi}</div>
+        <div>${district.name.split(' ')[0]}</div>
+      `;
+      
+      // Добавляем обработчик клика
+      marker.addEventListener('click', function() {
+        showDistrictDetail(district.id);
+      });
+      
+      cityMap.appendChild(marker);
+    });
+    
+    // Добавляем подписи к карте
+    const labels = document.createElement('div');
+    labels.style.position = 'absolute';
+    labels.style.bottom = '20px';
+    labels.style.left = '20px';
+    labels.style.background = 'rgba(255, 255, 255, 0.9)';
+    labels.style.padding = '10px';
+    labels.style.borderRadius = 'var(--border-radius)';
+    labels.style.fontSize = '12px';
+    labels.innerHTML = `
+      <div style="margin-bottom: 5px; font-weight: 600;">Легенда:</div>
+      <div style="display: flex; align-items: center; gap: 5px; margin-bottom: 3px;">
+        <div style="width: 10px; height: 10px; border-radius: 50%; background: var(--good);"></div>
+        <span>Хорошо (0-50)</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 5px; margin-bottom: 3px;">
+        <div style="width: 10px; height: 10px; border-radius: 50%; background: var(--moderate);"></div>
+        <span>Умеренно (51-100)</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 5px;">
+        <div style="width: 10px; height: 10px; border-radius: 50%; background: var(--poor);"></div>
+        <span>Плохо (101+)</span>
+      </div>
+    `;
+    cityMap.appendChild(labels);
+  }
+  
+  // Создание карточек районов
+  function createDistrictCards() {
+    const districtsGrid = document.getElementById('districts-grid');
+    districtsGrid.innerHTML = '';
+    
+    districtsData.forEach(district => {
+      const card = document.createElement('div');
+      card.className = `district-card ${district.quality}`;
+      card.innerHTML = `
+        <div class="district-card-header">
+          <div class="district-card-name">${district.name}</div>
+          <div class="district-card-aqi aqi-${district.quality}">${district.aqi}</div>
+        </div>
+        <div class="pollutants-grid">
+          ${district.pollutants.map(pollutant => `
+            <div class="pollutant-card">
+              <div class="pollutant-name">
+                <i class="fas fa-wind"></i>
+                ${pollutant.name}
+              </div>
+              <div class="pollutant-value">${pollutant.value}</div>
+              <div class="pollutant-status status-${pollutant.status}">
+                ${pollutant.status === 'good' ? 'Хорошо' : pollutant.status === 'moderate' ? 'Умеренно' : 'Плохо'}
+              </div>
+            </div>
+          `).join('')}
+        </div>
+        <div style="margin-top: 15px; font-size: 13px; color: var(--gray);">
+          <i class="fas fa-info-circle"></i>
+          ${district.description}
+        </div>
+      `;
+      
+      // Добавляем обработчик клика
+      card.addEventListener('click', function() {
+        showDistrictDetail(district.id);
+      });
+      
+      districtsGrid.appendChild(card);
+    });
+  }
+  
+  // Обновление основного AQI
+  function updateMainAQI() {
+    // Рассчитываем средний AQI по городу
+    const totalAQI = districtsData.reduce((sum, district) => sum + district.aqi, 0);
+    const averageAQI = Math.round(totalAQI / districtsData.length);
+    
+    const mainAqiElement = document.getElementById('main-aqi');
+    mainAqiElement.textContent = averageAQI;
+    
+    // Обновляем цвет и описание
+    let qualityClass = 'aqi-good';
+    let description = 'Хорошее качество воздуха';
+    
+    if (averageAQI <= 50) {
+      qualityClass = 'aqi-good';
+      description = 'Хорошее качество воздуха';
+    } else if (averageAQI <= 100) {
+      qualityClass = 'aqi-moderate';
+      description = 'Умеренное качество воздуха';
+    } else {
+      qualityClass = 'aqi-poor';
+      description = 'Плохое качество воздуха';
+    }
+    
+    mainAqiElement.className = `aqi-value ${qualityClass}`;
+    document.querySelector('.aqi-description').textContent = description;
+  }
+  
+  // Загрузка списка тендеров
+  function loadTendersTable() {
+    const tableBody = document.getElementById('tenders-table-body');
+    tableBody.innerHTML = '';
+    
+    tendersData.forEach(tender => {
+      const row = document.createElement('div');
+      row.className = 'table-row';
+      row.innerHTML = `
+        <div class="table-cell" style="width: 30%;">
+          <div class="tender-title">${tender.title}</div>
+          <div class="tender-org">${tender.organization}</div>
+        </div>
+        <div class="table-cell" style="width: 15%;">
+          <div class="tender-amount">${tender.amount}</div>
+        </div>
+        <div class="table-cell" style="width: 15%;">
+          <div class="tender-date">${tender.date}</div>
+        </div>
+        <div class="table-cell" style="width: 15%;">
+          <div class="tender-status status-${tender.status}">
+            ${tender.status === 'active' ? 'Активен' : tender.status === 'completed' ? 'Завершен' : 'Отменен'}
+          </div>
+        </div>
+        <div class="table-cell" style="width: 15%;">
+          <div class="tender-risk risk-${tender.risk}">${tender.riskScore}%</div>
+        </div>
+        <div class="table-cell" style="width: 10%;">
+          <div class="table-actions">
+            <button class="action-btn view-tender" data-id="${tender.id}">
+              <i class="fas fa-eye"></i>
+            </button>
+            <button class="action-btn analyze-tender" data-id="${tender.id}">
+              <i class="fas fa-chart-line"></i>
+            </button>
+          </div>
+        </div>
+      `;
+      
+      tableBody.appendChild(row);
+    });
+    
+    // Обновляем счетчики
+    document.getElementById('shown-count').textContent = tendersData.length;
+    document.getElementById('total-count').textContent = '1,247';
+  }
+  
+  // Загрузка аномалий
+  function loadAnomalies() {
+    const anomaliesList = document.getElementById('anomalies-list');
+    anomaliesList.innerHTML = '';
+    
+    anomaliesData.forEach(anomaly => {
+      const item = document.createElement('div');
+      item.className = `analysis-item ${anomaly.type}`;
+      item.innerHTML = `
+        <div class="analysis-item-title">
+          <i class="fas fa-${anomaly.type === 'warning' ? 'exclamation-triangle' : 'check-circle'}"></i>
+          ${anomaly.title}
+        </div>
+        <div class="analysis-item-text">${anomaly.description}</div>
+      `;
+      
+      anomaliesList.appendChild(item);
+    });
+  }
+  
+  // Загрузка рекомендаций
+  function loadRecommendations() {
+    const recommendationsList = document.getElementById('recommendations-list');
+    recommendationsList.innerHTML = '';
+    
+    recommendationsData.forEach(recommendation => {
+      const item = document.createElement('div');
+      item.className = `analysis-item ${recommendation.type}`;
+      item.innerHTML = `
+        <div class="analysis-item-title">
+          <i class="fas fa-${recommendation.type === 'warning' ? 'lightbulb' : 'check-circle'}"></i>
+          ${recommendation.title}
+        </div>
+        <div class="analysis-item-text">${recommendation.description}</div>
+      `;
+      
+      recommendationsList.appendChild(item);
+    });
+  }
+  
+  // Инициализация обработчиков событий для AI-Procure
+  function initProcureEventListeners() {
+    // Применение фильтров
+    document.getElementById('apply-filters').addEventListener('click', applyFilters);
+    
+    // AI анализ
+    document.getElementById('ai-analyze').addEventListener('click', performAIAnalysis);
+    
+    // Экспорт данных
+    document.getElementById('export-data').addEventListener('click', exportData);
+    
+    // Новый анализ
+    document.getElementById('new-analysis').addEventListener('click', newAnalysis);
+    
+    // Обновление анализа
+    document.getElementById('refresh-analysis').addEventListener('click', refreshAnalysis);
+    
+    // Поиск
+    document.querySelector('.search-btn').addEventListener('click', performSearch);
+    document.getElementById('tender-search').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') performSearch();
+    });
+    
+    // Просмотр тендера
+    document.addEventListener('click', function(e) {
+      if (e.target.closest('.view-tender')) {
+        const tenderId = e.target.closest('.view-tender').getAttribute('data-id');
+        viewTenderDetails(tenderId);
+      }
+      
+      if (e.target.closest('.analyze-tender')) {
+        const tenderId = e.target.closest('.analyze-tender').getAttribute('data-id');
+        analyzeTender(tenderId);
+      }
+    });
+    
+    // Пагинация
+    document.querySelectorAll('.page-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const currentPage = document.querySelector('.page-active');
+        currentPage.classList.remove('page-active');
+        this.classList.add('page-active');
+        
+        // Здесь можно добавить загрузку данных для выбранной страницы
+        const pageNum = this.textContent;
+        if (pageNum && !isNaN(pageNum)) {
+          updateTableForPage(parseInt(pageNum));
+        }
+      });
+    });
+  }
+  
+  // Применение фильтров
+  function applyFilters() {
+    const category = document.getElementById('category-filter').value;
+    const period = document.getElementById('period-filter').value;
+    const status = document.getElementById('status-filter').value;
+    
+    // Здесь можно добавить реальную фильтрацию данных
+    console.log('Применены фильтры:', { category, period, status });
+    
+    // Показать уведомление
+    showNotification('Фильтры применены успешно', 'success');
+  }
+  
+  // Выполнение AI анализа
+  function performAIAnalysis() {
+    // Показать индикатор загрузки
+    const analyzeBtn = document.getElementById('ai-analyze');
+    const originalText = analyzeBtn.innerHTML;
+    analyzeBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Анализ...';
+    analyzeBtn.disabled = true;
+    
+    // Имитация анализа AI
+    setTimeout(() => {
+      analyzeBtn.innerHTML = originalText;
+      analyzeBtn.disabled = false;
+      
+      // Обновить данные
+      updateProcureStats();
+      loadAnomalies();
+      loadRecommendations();
+      
+      // Показать уведомление
+      showNotification('AI анализ завершен успешно', 'success');
+      
+      // Показать результаты анализа
+      showAIAnalysisResults();
+    }, 2000);
+  }
+  
+  // Экспорт данных
+  function exportData() {
+    showNotification('Данные экспортированы в формате Excel', 'success');
+  }
+  
+  // Новый анализ
+  function newAnalysis() {
+    showModal('Новый анализ тендеров', `
+      <div style="margin-bottom: 20px;">
+        <p>Создание нового AI-анализа тендеров. Выберите параметры:</p>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 15px;">
+        <div>
+          <label style="display: block; margin-bottom: 5px; font-weight: 600;">Тип анализа:</label>
+          <select style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid var(--gray-light);">
+            <option>Анализ рисков</option>
+            <option>Анализ цен</option>
+            <option>Анализ поставщиков</option>
+            <option>Прогнозирование тендеров</option>
+          </select>
+        </div>
+        <div>
+          <label style="display: block; margin-bottom: 5px; font-weight: 600;">Период:</label>
+          <select style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid var(--gray-light);">
+            <option>Последние 30 дней</option>
+            <option>Последние 90 дней</option>
+            <option>Текущий год</option>
+            <option>Все время</option>
+          </select>
+        </div>
+        <div>
+          <label style="display: block; margin-bottom: 5px; font-weight: 600;">Категории:</label>
+          <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+            <label style="display: flex; align-items: center; gap: 5px;">
+              <input type="checkbox" checked> Строительство
+            </label>
+            <label style="display: flex; align-items: center; gap: 5px;">
+              <input type="checkbox" checked> IT
+            </label>
+            <label style="display: flex; align-items: center; gap: 5px;">
+              <input type="checkbox" checked> Медицина
+            </label>
+            <label style="display: flex; align-items: center; gap: 5px;">
+              <input type="checkbox"> Образование
+            </label>
+            <label style="display: flex; align-items: center; gap: 5px;">
+              <input type="checkbox"> Транспорт
+            </label>
+          </div>
+        </div>
+      </div>
+    `, [
+      { text: 'Отмена', type: 'secondary', action: 'close' },
+      { text: 'Начать анализ', type: 'primary', action: () => {
+        showNotification('Новый анализ начат', 'success');
+        closeModal();
+      }}
+    ]);
+  }
+  
+  // Обновление анализа
+  function refreshAnalysis() {
+    const refreshBtn = document.getElementById('refresh-analysis');
+    const originalText = refreshBtn.innerHTML;
+    refreshBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Обновление...';
+    
+    setTimeout(() => {
+      refreshBtn.innerHTML = originalText;
+      
+      // Обновить данные
+      updateProcureStats();
+      
+      // Показать уведомление
+      showNotification('Данные обновлены', 'success');
+    }, 1500);
+  }
+  
+  // Поиск
+  function performSearch() {
+    const searchTerm = document.getElementById('tender-search').value;
+    if (searchTerm.trim()) {
+      showNotification(`Поиск: "${searchTerm}"`, 'info');
+    }
+  }
+  
+  // Просмотр деталей тендера
+  function viewTenderDetails(tenderId) {
+    const tender = tendersData.find(t => t.id == tenderId);
+    if (!tender) return;
+    
+    showModal(`Тендер: ${tender.title}`, `
+      <div style="margin-bottom: 25px;">
+        <div style="display: flex; justify-content: space-between; margin-bottom: 15px;">
+          <div>
+            <div style="font-size: 14px; color: var(--gray); margin-bottom: 5px;">Организация:</div>
+            <div style="font-weight: 600; font-size: 16px;">${tender.organization}</div>
+          </div>
+          <div>
+            <div style="font-size: 14px; color: var(--gray); margin-bottom: 5px;">Сумма:</div>
+            <div style="font-weight: 700; font-size: 18px; color: var(--primary);">${tender.amount}</div>
+          </div>
+        </div>
+        
+        <div style="display: flex; gap: 20px; margin-bottom: 20px;">
+          <div>
+            <div style="font-size: 14px; color: var(--gray); margin-bottom: 5px;">Статус:</div>
+            <div class="tender-status status-${tender.status}" style="display: inline-block;">
+              ${tender.status === 'active' ? 'Активен' : tender.status === 'completed' ? 'Завершен' : 'Отменен'}
+            </div>
+          </div>
+          <div>
+            <div style="font-size: 14px; color: var(--gray); margin-bottom: 5px;">Дата:</div>
+            <div style="font-weight: 600;">${tender.date}</div>
+          </div>
+          <div>
+            <div style="font-size: 14px; color: var(--gray); margin-bottom: 5px;">Риск:</div>
+            <div class="tender-risk risk-${tender.risk}" style="font-weight: 700; font-size: 16px;">${tender.riskScore}%</div>
+          </div>
+        </div>
+        
+        <div style="margin-bottom: 20px;">
+          <div style="font-size: 14px; color: var(--gray); margin-bottom: 5px;">Описание:</div>
+          <div style="line-height: 1.6;">${tender.description}</div>
+        </div>
+        
+        <div style="background: var(--light); padding: 15px; border-radius: var(--border-radius);">
+          <div style="font-size: 14px; color: var(--gray); margin-bottom: 5px;">AI Анализ:</div>
+          <div style="line-height: 1.6;">${tender.aiAnalysis}</div>
+        </div>
+      </div>
+      
+      <div style="display: flex; gap: 10px;">
+        <button class="filter-btn primary" style="flex: 1;" onclick="closeModal(); showNotification('Заявка подана', 'success')">
+          <i class="fas fa-file-signature"></i>
+          Подать заявку
+        </button>
+        <button class="filter-btn secondary" style="flex: 1;" onclick="closeModal(); analyzeTender(${tenderId})">
+          <i class="fas fa-chart-line"></i>
+          Детальный анализ
+        </button>
+      </div>
+    `, [
+      { text: 'Закрыть', type: 'secondary', action: 'close' }
+    ]);
+  }
+  
+  // Анализ тендера
+  function analyzeTender(tenderId) {
+    const tender = tendersData.find(t => t.id == tenderId);
+    if (!tender) return;
+    
+    showModal(`AI Анализ тендера: ${tender.title.substring(0, 50)}...`, `
+      <div style="margin-bottom: 25px;">
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-bottom: 20px;">
+          <div style="background: white; padding: 15px; border-radius: var(--border-radius); box-shadow: var(--shadow);">
+            <div style="font-size: 12px; color: var(--gray); margin-bottom: 5px;">Оценка риска</div>
+            <div style="font-size: 24px; font-weight: 700; color: ${tender.risk === 'low' ? 'var(--success)' : tender.risk === 'medium' ? 'var(--warning)' : 'var(--danger)'};">${tender.riskScore}%</div>
+          </div>
+          <div style="background: white; padding: 15px; border-radius: var(--border-radius); box-shadow: var(--shadow);">
+            <div style="font-size: 12px; color: var(--gray); margin-bottom: 5px;">Сумма тендера</div>
+            <div style="font-size: 18px; font-weight: 700; color: var(--primary);">${tender.amount}</div>
+          </div>
+        </div>
+        
+        <div style="margin-bottom: 20px;">
+          <div style="font-weight: 600; margin-bottom: 10px; color: var(--dark);">Факторы риска:</div>
+          <ul style="padding-left: 20px; color: var(--gray);">
+            <li>Сложность технических требований</li>
+            <li>Ограниченные сроки выполнения</li>
+            <li>Сезонность работ (для строительных тендеров)</li>
+            <li>Зависимость от импортных комплектующих</li>
+          </ul>
+        </div>
+        
+        <div style="margin-bottom: 20px;">
+          <div style="font-weight: 600; margin-bottom: 10px; color: var(--dark);">Рекомендации AI:</div>
+          <div style="background: rgba(46, 204, 113, 0.1); padding: 15px; border-radius: var(--border-radius); border-left: 4px solid var(--success);">
+            <div style="font-weight: 600; margin-bottom: 5px; color: var(--success);">Оптимизация:</div>
+            <div style="color: var(--gray); line-height: 1.5;">${tender.aiAnalysis}</div>
+          </div>
+        </div>
+        
+        <div>
+          <div style="font-weight: 600; margin-bottom: 10px; color: var(--dark);">Прогноз выполнения:</div>
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <div style="flex: 1; height: 10px; background: var(--gray-light); border-radius: 5px; overflow: hidden;">
+              <div style="width: ${100 - tender.riskScore}%; height: 100%; background: var(--success);"></div>
+            </div>
+            <div style="font-weight: 600; color: var(--success);">${100 - tender.riskScore}% вероятность успеха</div>
+          </div>
+        </div>
+      </div>
+      
+      <button class="filter-btn primary" style="width: 100%;" onclick="closeModal(); showNotification('Отчет сгенерирован', 'success')">
+        <i class="fas fa-download"></i>
+        Скачать детальный отчет
+      </button>
+    `, [
+      { text: 'Закрыть', type: 'secondary', action: 'close' }
+    ]);
+  }
+  
+  // Обновление статистики
+  function updateProcureStats() {
+    // Имитация обновления статистики
+    const totalTenders = Math.floor(Math.random() * 200) + 1200;
+    const totalSum = (Math.random() * 50 + 240).toFixed(1);
+    const activeOrgs = Math.floor(Math.random() * 10) + 75;
+    const avgSavings = (Math.random() * 3 + 17).toFixed(1);
+    
+    document.getElementById('total-tenders').textContent = totalTenders.toLocaleString();
+    document.getElementById('total-sum').textContent = `${totalSum} млрд ₸`;
+    document.getElementById('active-organizations').textContent = activeOrgs;
+    document.getElementById('avg-savings').textContent = `${avgSavings}%`;
+  }
+  
+  // Обновление таблицы для страницы
+  function updateTableForPage(pageNum) {
+    // Здесь можно добавить загрузку данных для конкретной страницы
+    console.log('Загрузка данных для страницы:', pageNum);
+  }
+  
+  // Показ результатов AI анализа
+  function showAIAnalysisResults() {
+    showModal('Результаты AI анализа', `
+      <div style="margin-bottom: 25px;">
+        <div style="text-align: center; margin-bottom: 20px;">
+          <i class="fas fa-robot" style="font-size: 48px; color: var(--primary); margin-bottom: 15px;"></i>
+          <h3 style="color: var(--primary); margin-bottom: 10px;">AI анализ завершен</h3>
+          <p style="color: var(--gray);">Проанализировано 1,247 тендеров за последние 30 дней</p>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin-bottom: 20px;">
+          <div style="background: white; padding: 15px; border-radius: var(--border-radius); box-shadow: var(--shadow);">
+            <div style="font-size: 12px; color: var(--gray); margin-bottom: 5px;">Выявлено аномалий</div>
+            <div style="font-size: 24px; font-weight: 700; color: var(--warning);">${anomaliesData.length}</div>
+          </div>
+          <div style="background: white; padding: 15px; border-radius: var(--border-radius); box-shadow: var(--shadow);">
+            <div style="font-size: 12px; color: var(--gray); margin-bottom: 5px;">Рекомендаций</div>
+            <div style="font-size: 24px; font-weight: 700; color: var(--success);">${recommendationsData.length}</div>
+          </div>
+        </div>
+        
+        <div style="background: rgba(52, 152, 219, 0.1); padding: 15px; border-radius: var(--border-radius); border-left: 4px solid #3498db; margin-bottom: 15px;">
+          <div style="font-weight: 600; margin-bottom: 5px; color: #3498db;">Ключевой вывод:</div>
+          <div style="color: var(--gray); line-height: 1.5;">AI выявил возможность экономии бюджета до 15% через консолидацию закупок и оптимизацию сроков</div>
+        </div>
+        
+        <div style="background: rgba(46, 204, 113, 0.1); padding: 15px; border-radius: var(--border-radius); border-left: 4px solid var(--success);">
+          <div style="font-weight: 600; margin-bottom: 5px; color: var(--success);">Следующие шаги:</div>
+          <ul style="color: var(--gray); padding-left: 20px; line-height: 1.6;">
+            <li>Рассмотреть возможность объединения 5 тендеров на медицинское оборудование</li>
+            <li>Перенести сроки строительных тендеров на весенний период</li>
+            <li>Провести предварительную квалификацию поставщиков для сложных проектов</li>
+          </ul>
+        </div>
+      </div>
+    `, [
+      { text: 'Закрыть', type: 'secondary', action: 'close' },
+      { text: 'Скачать отчет', type: 'primary', action: () => {
+        showNotification('Отчет отправлен на email', 'success');
+        closeModal();
+      }}
+    ]);
+  }
+  
+  // Показ деталей района
+  function showDistrictDetail(districtId) {
+    const district = districtsData.find(d => d.id === districtId);
+    if (!district) return;
+    
+    showModal(`${district.name}`, `
+      <div style="margin-bottom: 25px;">
+        <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 25px;">
+          <div style="font-size: 48px; font-weight: 700; color: var(--${district.quality});">${district.aqi}</div>
+          <div>
+            <div style="font-size: 18px; font-weight: 600; color: var(--dark);">Индекс качества воздуха</div>
+            <div style="color: var(--gray);">
+              ${district.quality === 'good' ? 'Хорошее качество' : district.quality === 'moderate' ? 'Умеренное качество' : 'Плохое качество'}
+            </div>
+          </div>
+        </div>
+        
+        <div style="margin-bottom: 25px;">
+          <h3 style="font-size: 16px; font-weight: 600; color: var(--dark); margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+            <i class="fas fa-chart-bar"></i>
+            Загрязняющие вещества
+          </h3>
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px;">
+            ${district.pollutants.map(pollutant => `
+              <div style="padding: 15px; background: var(--light); border-radius: var(--border-radius);">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                  <span style="font-weight: 600; color: var(--dark);">${pollutant.name}</span>
+                  <span style="font-weight: 700; font-size: 16px;">${pollutant.value}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="font-size: 12px; color: var(--gray);">Уровень</span>
+                  <span class="pollutant-status status-${pollutant.status}" style="font-size: 12px; padding: 3px 10px; border-radius: 12px; font-weight: 600;">
+                    ${pollutant.status === 'good' ? 'Хорошо' : pollutant.status === 'moderate' ? 'Умеренно' : 'Плохо'}
+                  </span>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+        
+        <div style="margin-bottom: 25px;">
+          <h3 style="font-size: 16px; font-weight: 600; color: var(--dark); margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+            <i class="fas fa-info-circle"></i>
+            Описание района
+          </h3>
+          <p style="color: var(--gray); line-height: 1.6;">${district.description}</p>
+        </div>
+        
+        <div>
+          <h3 style="font-size: 16px; font-weight: 600; color: var(--dark); margin-bottom: 15px; display: flex; align-items: center; gap: 10px;">
+            <i class="fas fa-lightbulb"></i>
+            Рекомендации
+          </h3>
+          <p style="color: var(--gray); line-height: 1.6;">${district.recommendations}</p>
+        </div>
+      </div>
+    `, [
+      { text: 'Закрыть', type: 'secondary', action: 'close' }
+    ]);
+  }
+  
+  // Обновление данных в реальном времени
+  function startRealTimeUpdates() {
+    // Имитация обновления данных каждые 30 секунд
+    setInterval(updateAirData, 30000);
+  }
+  
+  // Обновление данных воздуха
+  function updateAirData() {
+    // Случайное изменение данных для имитации реальных изменений
+    districtsData.forEach(district => {
+      const change = Math.floor(Math.random() * 10) - 5; // -5 до +5
+      district.aqi = Math.max(0, Math.min(200, district.aqi + change));
+      
+      // Обновляем качество на основе нового AQI
+      if (district.aqi <= 50) {
+        district.quality = 'good';
+      } else if (district.aqi <= 100) {
+        district.quality = 'moderate';
+      } else {
+        district.quality = 'poor';
+      }
+      
+      // Обновляем загрязняющие вещества
+      district.pollutants.forEach(pollutant => {
+        const currentValue = parseInt(pollutant.value);
+        const pollutantChange = Math.floor(Math.random() * 4) - 2; // -2 до +2
+        const newValue = Math.max(0, currentValue + pollutantChange);
+        
+        // Обновляем значение
+        if (pollutant.name === 'PM2.5') {
+          pollutant.value = `${newValue} µg/m³`;
+          pollutant.status = newValue <= 15 ? 'good' : newValue <= 35 ? 'moderate' : 'poor';
+        } else if (pollutant.name === 'PM10') {
+          pollutant.value = `${newValue * 2} µg/m³`;
+          pollutant.status = newValue * 2 <= 30 ? 'good' : newValue * 2 <= 60 ? 'moderate' : 'poor';
+        } else if (pollutant.name === 'NO₂') {
+          pollutant.value = `${newValue + 10} µg/m³`;
+          pollutant.status = newValue + 10 <= 20 ? 'good' : newValue + 10 <= 40 ? 'moderate' : 'poor';
+        } else if (pollutant.name === 'SO₂') {
+          pollutant.value = `${newValue} µg/m³`;
+          pollutant.status = newValue <= 5 ? 'good' : newValue <= 10 ? 'moderate' : 'poor';
+        }
+      });
+    });
+    
+    // Обновляем интерфейс
+    createDistrictMarkers();
+    createDistrictCards();
+    updateMainAQI();
+    
+    // Обновляем время в источниках данных
+    const now = new Date();
+    const timeString = now.toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' });
+    const dateString = now.toLocaleDateString('ru-RU');
+    document.querySelector('.data-sources span').textContent = 
+      `Данные обновлены: ${dateString} ${timeString} • Источники: Станции мониторинга Усть-Каменогорска, МЭ РК`;
+  }
+  
+  // Утилиты для модальных окон
+  function showModal(title, content, buttons = []) {
+    // Удаляем существующее модальное окно
+    const existingModal = document.querySelector('.modal-overlay');
+    if (existingModal) {
+      document.body.removeChild(existingModal);
+    }
+    
+    const modalOverlay = document.createElement('div');
+    modalOverlay.className = 'modal-overlay';
+    
+    const modalContent = document.createElement('div');
+    modalContent.className = 'modal-content';
+    
+    // Заголовок
+    const modalHeader = document.createElement('div');
+    modalHeader.className = 'modal-header';
+    modalHeader.innerHTML = `
+      <h2 class="modal-title">${title}</h2>
+      <button class="close-modal">
+        <i class="fas fa-times"></i>
+      </button>
+    `;
+    
+    // Тело
+    const modalBody = document.createElement('div');
+    modalBody.className = 'modal-body';
+    modalBody.innerHTML = content;
+    
+    // Кнопки
+    const modalFooter = document.createElement('div');
+    modalFooter.className = 'modal-header';
+    modalFooter.style.borderTop = '1px solid var(--gray-light)';
+    modalFooter.style.display = 'flex';
+    modalFooter.style.justifyContent = 'flex-end';
+    modalFooter.style.gap = '10px';
+    
+    buttons.forEach(button => {
+      const btn = document.createElement('button');
+      btn.className = `filter-btn ${button.type || 'primary'}`;
+      btn.textContent = button.text;
+      btn.addEventListener('click', function() {
+        if (button.action === 'close') {
+          closeModal();
+        } else if (typeof button.action === 'function') {
+          button.action();
+        }
+      });
+      modalFooter.appendChild(btn);
+    });
+    
+    // Если кнопок нет, добавляем кнопку закрытия
+    if (buttons.length === 0) {
+      const closeBtn = document.createElement('button');
+      closeBtn.className = 'filter-btn primary';
+      closeBtn.textContent = 'Закрыть';
+      closeBtn.addEventListener('click', closeModal);
+      modalFooter.appendChild(closeBtn);
+    }
+    
+    // Собираем модальное окно
+    modalContent.appendChild(modalHeader);
+    modalContent.appendChild(modalBody);
+    modalContent.appendChild(modalFooter);
+    modalOverlay.appendChild(modalContent);
+    
+    // Добавляем на страницу
+    document.body.appendChild(modalOverlay);
+    
+    // Закрытие при клике вне модального окна
+    modalOverlay.addEventListener('click', function(e) {
+      if (e.target === modalOverlay) {
+        closeModal();
+      }
+    });
+    
+    // Закрытие при нажатии ESC
+    document.addEventListener('keydown', function closeOnEsc(e) {
+      if (e.key === 'Escape') {
+        closeModal();
+        document.removeEventListener('keydown', closeOnEsc);
+      }
+    });
+    
+    // Закрытие при клике на крестик
+    modalContent.querySelector('.close-modal').addEventListener('click', closeModal);
+  }
+  
+  function closeModal() {
+    const modal = document.querySelector('.modal-overlay');
+    if (modal) {
+      document.body.removeChild(modal);
+    }
+  }
+  
+  // Показать уведомление
+  function showNotification(message, type = 'info') {
+    // Создаем уведомление
+    const notification = document.createElement('div');
+    notification.style.position = 'fixed';
+    notification.style.top = '20px';
+    notification.style.right = '20px';
+    notification.style.padding = '15px 20px';
+    notification.style.borderRadius = 'var(--border-radius)';
+    notification.style.boxShadow = 'var(--shadow-hover)';
+    notification.style.zIndex = '1001';
+    notification.style.display = 'flex';
+    notification.style.alignItems = 'center';
+    notification.style.gap = '10px';
+    notification.style.maxWidth = '400px';
+    notification.style.animation = 'fadeIn 0.3s ease';
+    
+    // Цвета в зависимости от типа
+    let bgColor, icon, textColor;
+    switch(type) {
+      case 'success':
+        bgColor = 'rgba(46, 204, 113, 0.9)';
+        icon = 'fa-check-circle';
+        textColor = 'white';
+        break;
+      case 'warning':
+        bgColor = 'rgba(241, 196, 15, 0.9)';
+        icon = 'fa-exclamation-triangle';
+        textColor = 'white';
+        break;
+      case 'error':
+        bgColor = 'rgba(231, 76, 60, 0.9)';
+        icon = 'fa-times-circle';
+        textColor = 'white';
+        break;
+      default:
+        bgColor = 'rgba(52, 152, 219, 0.9)';
+        icon = 'fa-info-circle';
+        textColor = 'white';
+    }
+    
+    notification.style.backgroundColor = bgColor;
+    notification.style.color = textColor;
+    
+    notification.innerHTML = `
+      <i class="fas ${icon}"></i>
+      <span>${message}</span>
+    `;
+    
+    document.body.appendChild(notification);
+    
+    // Автоматическое скрытие через 3 секунды
+    setTimeout(() => {
+      notification.style.animation = 'fadeIn 0.3s ease reverse';
+      setTimeout(() => {
+        if (notification.parentNode) {
+          document.body.removeChild(notification);
+        }
+      }, 300);
+    }, 3000);
+  }
+  
+  // Анимация при наведении
+  const cards = document.querySelectorAll('.card, .service, .banner');
+  cards.forEach(card => {
+    card.addEventListener('mouseenter', function() {
+      this.style.transition = 'transform 0.3s ease, box-shadow 0.3s ease';
+    });
+  });
+  
+  // Интерактивность для переключателя языка
+  const langButtons = document.querySelectorAll('.lang-btn');
+  langButtons.forEach(btn => {
+    btn.addEventListener('click', function() {
+      langButtons.forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+  
+  // Клик по важным пунктам
+  const importantItems = document.querySelectorAll('.important-item');
+  importantItems.forEach(item => {
+    item.addEventListener('click', function() {
+      const text = this.querySelector('span').textContent;
+      showNotification(`Вы выбрали: ${text}`, 'info');
+    });
+  });
+  
+  // Клик по сервисам
+  const services = document.querySelectorAll('.service');
+  services.forEach(service => {
+    service.addEventListener('click', function() {
+      const title = this.querySelector('.service-title').textContent;
+      showNotification(`Сервис "${title}"`, 'info');
+    });
+  });
+  
+  // Клик по баннерам
+  const banners = document.querySelectorAll('.banner');
+  banners.forEach(banner => {
+    banner.addEventListener('click', function() {
+      const title = this.querySelector('.banner-title').textContent;
+      showNotification(`Открывается: ${title}`, 'info');
+    });
+  });
+});
+</script>
+</body>
+</html>
