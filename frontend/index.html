@@ -308,14 +308,14 @@
             AI-Procure — Интеллектуальный анализ закупок
           </h1>
           <div class="city-selector">
-            <span class="city-label">Режим:</span>
-            <span class="city-name" id="ai-mode">Анализ тендеров</span>
+            <span class="city-label">Регион:</span>
+            <span class="city-name">ВКО</span>
           </div>
         </div>
 
         <!-- ОСНОВНОЙ БЛОК С ДАННЫМИ -->
         <div class="procure-dashboard">
-          <!-- СТАТИСТИКА В РЕАЛЬНОМ ВРЕМЕНИ -->
+          <!-- СТАТИСТИКА -->
           <div class="procure-stats">
             <div class="stats-grid">
               <div class="stat-card">
@@ -323,12 +323,8 @@
                   <i class="fas fa-file-contract"></i>
                 </div>
                 <div class="stat-content">
-                  <div class="stat-value" id="total-tenders">1,247</div>
+                  <div class="stat-value" id="total-tenders">—</div>
                   <div class="stat-label">Активных тендеров</div>
-                  <div class="stat-change positive">
-                    <i class="fas fa-arrow-up"></i>
-                    +12% за неделю
-                  </div>
                 </div>
               </div>
 
@@ -337,12 +333,8 @@
                   <i class="fas fa-tenge-sign"></i>
                 </div>
                 <div class="stat-content">
-                  <div class="stat-value" id="total-sum">245.7 млрд ₸</div>
-                  <div class="stat-label">Общая сумма закупок</div>
-                  <div class="stat-change positive">
-                    <i class="fas fa-arrow-up"></i>
-                    +8% за месяц
-                  </div>
+                  <div class="stat-value" id="total-sum">—</div>
+                  <div class="stat-label">Общая сумма</div>
                 </div>
               </div>
 
@@ -351,12 +343,8 @@
                   <i class="fas fa-building"></i>
                 </div>
                 <div class="stat-content">
-                  <div class="stat-value" id="active-organizations">78</div>
-                  <div class="stat-label">Активных организаций</div>
-                  <div class="stat-change negative">
-                    <i class="fas fa-arrow-down"></i>
-                    -3% за неделю
-                  </div>
+                  <div class="stat-value" id="active-organizations">—</div>
+                  <div class="stat-label">Организаций</div>
                 </div>
               </div>
 
@@ -365,12 +353,8 @@
                   <i class="fas fa-chart-pie"></i>
                 </div>
                 <div class="stat-content">
-                  <div class="stat-value" id="avg-savings">18.5%</div>
+                  <div class="stat-value" id="avg-savings">—</div>
                   <div class="stat-label">Средняя экономия</div>
-                  <div class="stat-change positive">
-                    <i class="fas fa-arrow-up"></i>
-                    +2.3% за квартал
-                  </div>
                 </div>
               </div>
             </div>
@@ -381,7 +365,7 @@
             <div class="filter-group">
               <div class="filter-title">
                 <i class="fas fa-filter"></i>
-                Фильтры анализа
+                Фильтры
               </div>
               <div class="filter-controls">
                 <select class="filter-select" id="category-filter">
@@ -389,200 +373,87 @@
                   <option value="construction">Строительство</option>
                   <option value="it">IT и технологии</option>
                   <option value="medical">Медицина</option>
-                  <option value="education">Образование</option>
                   <option value="transport">Транспорт</option>
-                  <option value="energy">Энергетика</option>
-                </select>
-
-                <select class="filter-select" id="period-filter">
-                  <option value="week">За неделю</option>
-                  <option value="month" selected>За месяц</option>
-                  <option value="quarter">За квартал</option>
-                  <option value="year">За год</option>
-                </select>
-
-                <select class="filter-select" id="status-filter">
-                  <option value="all">Все статусы</option>
-                  <option value="active">Активные</option>
-                  <option value="completed">Завершенные</option>
-                  <option value="cancelled">Отмененные</option>
+                  <option value="food">Продукты питания</option>
                 </select>
 
                 <button class="filter-btn primary" id="apply-filters">
                   <i class="fas fa-search"></i>
                   Применить
                 </button>
-
-                <button class="filter-btn secondary" id="ai-analyze">
-                  <i class="fas fa-robot"></i>
-                  AI Анализ
-                </button>
               </div>
             </div>
 
             <div class="search-box">
               <i class="fas fa-search"></i>
-              <input type="text" id="tender-search" placeholder="Поиск по тендерам, организациям, ключевым словам...">
-              <button class="search-btn">
-                <i class="fas fa-arrow-right"></i>
-              </button>
+              <input type="text" id="tender-search" placeholder="Поиск по тендерам, организациям...">
             </div>
           </div>
 
-          <!-- СПИСОК ТЕНДЕРОВ С AI-АНАЛИЗОМ -->
+          <!-- СПИСОК ТЕНДЕРОВ -->
           <div class="tenders-list">
             <div class="list-header">
               <h3>
                 <i class="fas fa-list-ol"></i>
-                Тендеры с AI-анализом рисков
+                Тендеры ВКО
               </h3>
-              <div class="list-actions">
-                <button class="list-btn" id="export-data">
-                  <i class="fas fa-download"></i>
-                  Экспорт
-                </button>
-                <button class="list-btn primary" id="new-analysis">
-                  <i class="fas fa-plus"></i>
-                  Новый анализ
-                </button>
+              <div class="list-hint">
+                <i class="fas fa-robot"></i>
+                Нажмите на кнопку AI для анализа рисков тендера
               </div>
             </div>
 
             <div class="tenders-table">
               <div class="table-header">
-                <div class="table-col" style="width: 30%;">Тендер / Организация</div>
+                <div class="table-col" style="width: 35%;">Тендер / Организация</div>
                 <div class="table-col" style="width: 15%;">Сумма</div>
-                <div class="table-col" style="width: 15%;">Срок</div>
-                <div class="table-col" style="width: 15%;">AI Оценка</div>
-                <div class="table-col" style="width: 15%;">Риски</div>
-                <div class="table-col" style="width: 10%;">Действия</div>
+                <div class="table-col" style="width: 15%;">Срок подачи</div>
+                <div class="table-col" style="width: 15%;">Статус</div>
+                <div class="table-col" style="width: 20%;">Действия</div>
               </div>
 
               <div class="table-body" id="tenders-table-body">
-                <!-- Тендеры будут загружены через JavaScript -->
+                <div class="loading-placeholder">
+                  <div class="loading-spinner"></div>
+                  <div>Загрузка тендеров...</div>
+                </div>
               </div>
             </div>
 
             <div class="table-footer">
-              <div class="pagination">
-                <button class="page-btn">
-                  <i class="fas fa-chevron-left"></i>
-                </button>
-                <span class="page-active">1</span>
-                <button class="page-btn">2</button>
-                <button class="page-btn">3</button>
-                <span class="page-dots">...</span>
-                <button class="page-btn">10</button>
-                <button class="page-btn">
-                  <i class="fas fa-chevron-right"></i>
-                </button>
-              </div>
               <div class="table-info">
-                Показано <span id="shown-count">8</span> из <span id="total-count">1,247</span> тендеров
+                Показано <span id="shown-count">0</span> из <span id="total-count">0</span> тендеров
               </div>
             </div>
           </div>
 
-          <!-- AI-АНАЛИЗ И РЕКОМЕНДАЦИИ -->
-          <div class="ai-analysis-section">
-            <div class="analysis-header">
-              <h3>
-                <i class="fas fa-brain"></i>
-                AI-анализ и рекомендации
-              </h3>
-              <div class="analysis-controls">
-                <button class="analysis-btn" id="refresh-analysis">
-                  <i class="fas fa-sync-alt"></i>
-                  Обновить анализ
-                </button>
+          <!-- ИНФОРМАЦИЯ О ФУНКЦИОНАЛЕ -->
+          <div class="ai-info-section">
+            <div class="info-card">
+              <div class="info-icon">
+                <i class="fas fa-snowflake"></i>
+              </div>
+              <div class="info-content">
+                <h4>Сезонный анализ</h4>
+                <p>AI оценивает риски строительных работ в зимний период и рекомендует оптимальные сроки</p>
               </div>
             </div>
-
-            <div class="analysis-content">
-              <div class="analysis-main">
-                <div class="analysis-card">
-                  <div class="analysis-title">
-                    <i class="fas fa-exclamation-triangle"></i>
-                    Выявленные аномалии
-                  </div>
-                  <div class="analysis-list" id="anomalies-list">
-                    <!-- Аномалии будут загружены через JavaScript -->
-                  </div>
-                </div>
-
-                <div class="analysis-card">
-                  <div class="analysis-title">
-                    <i class="fas fa-lightbulb"></i>
-                    Рекомендации по оптимизации
-                  </div>
-                  <div class="analysis-list" id="recommendations-list">
-                    <!-- Рекомендации будут загружены через JavaScript -->
-                  </div>
-                </div>
+            <div class="info-card">
+              <div class="info-icon">
+                <i class="fas fa-tenge-sign"></i>
               </div>
-
-              <div class="analysis-sidebar">
-                <div class="analysis-card">
-                  <div class="analysis-title">
-                    <i class="fas fa-chart-pie"></i>
-                    Распределение по отраслям
-                  </div>
-                  <div class="chart-placeholder" id="sector-chart">
-                    Круговая диаграмма отраслей
-                  </div>
-                </div>
+              <div class="info-content">
+                <h4>Финансовый анализ</h4>
+                <p>Оценка рисков крупных контрактов и рекомендации по поэтапному контролю</p>
               </div>
             </div>
-          </div>
-
-          <!-- ПРЕДСКАЗАНИЯ И ТРЕНДЫ -->
-          <div class="predictions-section">
-            <h3>
-              <i class="fas fa-crystal-ball"></i>
-              Прогнозы и тренды на основе AI
-            </h3>
-
-            <div class="predictions-grid">
-              <div class="prediction-card">
-                <div class="prediction-icon" style="background: rgba(46, 204, 113, 0.1); color: #2ecc71;">
-                  <i class="fas fa-arrow-trend-up"></i>
-                </div>
-                <div class="prediction-content">
-                  <div class="prediction-title">Рост в IT-секторе</div>
-                  <div class="prediction-text">Ожидается увеличение закупок IT-оборудования на 25% в следующем квартале</div>
-                  <div class="prediction-confidence">
-                    <div class="confidence-label">Достоверность:</div>
-                    <div class="confidence-value high">87%</div>
-                  </div>
-                </div>
+            <div class="info-card">
+              <div class="info-icon">
+                <i class="fas fa-clock"></i>
               </div>
-
-              <div class="prediction-card">
-                <div class="prediction-icon" style="background: rgba(231, 76, 60, 0.1); color: #e74c3c;">
-                  <i class="fas fa-exclamation-circle"></i>
-                </div>
-                <div class="prediction-content">
-                  <div class="prediction-title">Риск срывов сроков</div>
-                  <div class="prediction-text">В строительных тендерах высокий риск срыва сроков (42%)</div>
-                  <div class="prediction-confidence">
-                    <div class="confidence-label">Достоверность:</div>
-                    <div class="confidence-value medium">76%</div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="prediction-card">
-                <div class="prediction-icon" style="background: rgba(52, 152, 219, 0.1); color: #3498db;">
-                  <i class="fas fa-money-bill-trend-up"></i>
-                </div>
-                <div class="prediction-content">
-                  <div class="prediction-title">Оптимизация бюджета</div>
-                  <div class="prediction-text">AI рекомендует консолидацию закупок для экономии до 15%</div>
-                  <div class="prediction-confidence">
-                    <div class="confidence-label">Достоверность:</div>
-                    <div class="confidence-value high">92%</div>
-                  </div>
-                </div>
+              <div class="info-content">
+                <h4>Анализ сроков</h4>
+                <p>Проверка реалистичности сроков выполнения и предупреждение о возможных срывах</p>
               </div>
             </div>
           </div>
@@ -590,7 +461,7 @@
           <!-- ИСТОЧНИКИ ДАННЫХ -->
           <div class="data-sources">
             <i class="fas fa-database"></i>
-            <span>Данные обновлены: 08.12.2025 15:30 • Источники: Госзакупки РК, Открытые данные ВКО, Исторические данные 2018-2025</span>
+            <span>Демонстрационные данные • Источник: Эмуляция портала госзакупок РК</span>
           </div>
         </div>
       </div>

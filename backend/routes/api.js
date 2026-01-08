@@ -6,6 +6,12 @@ import {
   getStationHistory,
 } from '../services/airQualityService.js';
 import { askAI, analyzeAirQuality } from '../services/aiService.js';
+import {
+  getAllTenders,
+  getTenderById,
+  analyzeTenderRisks,
+  aiAnalyzeTender,
+} from '../services/tenderService.js';
 
 const router = Router();
 
@@ -151,6 +157,106 @@ router.post('/ai/analyze', async (req, res) => {
     });
   } catch (error) {
     console.error('Error in /ai/analyze:', error);
+    res.status(500).json({
+      success: false,
+      error: error.message || 'AI analysis error',
+    });
+  }
+});
+
+// ==================== TENDER ROUTES ====================
+
+/**
+ * GET /api/tenders
+ * Получить список всех тендеров
+ */
+router.get('/tenders', (req, res) => {
+  try {
+    const data = getAllTenders();
+    res.json(data);
+  } catch (error) {
+    console.error('Error in /tenders:', error);
+    res.status(500).json({
+      success: false,
+      error: 'Internal server error',
+    });
+  }
+});
+
+/**
+ * GET /api/tenders/:id
+ * Получить тендер по ID
+ */
+router.get('/tenders/:id', (req, res) => {
+  try {
+    const { id } = req.params;
+    const data = getTenderById(id);
+
+    if (!data.success) {
+      return res.status(404).json(data);
+    }
+
+    res.json(data);
+  } catch (error) {
+    console.error(`Error in /tenders/${req.params.id}:`, error);
+    res.status(500).json({
+      success: false,
+      error: 'Internal server error',
+    });
+  }
+});
+
+/**
+ * GET /api/tenders/:id/risks
+ * Получить анализ рисков тендера (локальный, без AI)
+ */
+router.get('/tenders/:id/risks', (req, res) => {
+  try {
+    const { id } = req.params;
+    const tenderData = getTenderById(id);
+
+    if (!tenderData.success) {
+      return res.status(404).json(tenderData);
+    }
+
+    const analysis = analyzeTenderRisks(tenderData.tender);
+
+    res.json({
+      success: true,
+      tenderId: id,
+      analysis,
+    });
+  } catch (error) {
+    console.error(`Error in /tenders/${req.params.id}/risks:`, error);
+    res.status(500).json({
+      success: false,
+      error: 'Internal server error',
+    });
+  }
+});
+
+/**
+ * POST /api/tenders/:id/ai-analyze
+ * AI анализ тендера
+ */
+router.post('/tenders/:id/ai-analyze', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const tenderData = getTenderById(id);
+
+    if (!tenderData.success) {
+      return res.status(404).json(tenderData);
+    }
+
+    const analysis = await aiAnalyzeTender(tenderData.tender);
+
+    res.json({
+      success: true,
+      tenderId: id,
+      ...analysis,
+    });
+  } catch (error) {
+    console.error(`Error in /tenders/${req.params.id}/ai-analyze:`, error);
     res.status(500).json({
       success: false,
       error: error.message || 'AI analysis error',

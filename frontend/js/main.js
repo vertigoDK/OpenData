@@ -695,134 +695,444 @@ function updateLastUpdateTime(isoString) {
   }
 }
 
-// ===== AI-PROCURE (оставляем статические данные для примера) =====
+// ===== AI-PROCURE =====
 
-const staticTendersData = [
-  {
-    id: 1,
-    title: 'Строительство школы на 800 мест в г. Усть-Каменогорск',
-    organization: 'Акимат Усть-Каменогорска',
-    amount: '2.8 млрд ₸',
-    date: '15.12.2025',
-    status: 'active',
-    risk: 'low',
-    riskScore: 22,
-  },
-  {
-    id: 2,
-    title: 'Закупка медицинского оборудования для областной больницы',
-    organization: 'Управление здравоохранения ВКО',
-    amount: '1.2 млрд ₸',
-    date: '10.01.2026',
-    status: 'active',
-    risk: 'medium',
-    riskScore: 58,
-  },
-  {
-    id: 3,
-    title: 'IT-инфраструктура для цифровизации госуслуг',
-    organization: 'Центр цифровизации ВКО',
-    amount: '850 млн ₸',
-    date: '20.12.2025',
-    status: 'completed',
-    risk: 'low',
-    riskScore: 18,
-  },
-];
+let procureData = null;
 
-const anomaliesData = [
-  { title: 'Необычно высокая цена', description: 'Цена на строительные материалы на 35% выше среднерыночной', type: 'warning' },
-  { title: 'Короткие сроки подачи', description: 'Срок подачи заявок всего 3 дня вместо стандартных 10', type: 'warning' },
-  { title: 'Экономия бюджета', description: 'AI рекомендовал объединить 3 тендера, экономия 120 млн ₸', type: 'success' },
-];
+/**
+ * Загрузить данные тендеров с API
+ */
+async function loadProcureData() {
+  try {
+    const response = await fetch(`${API_BASE_URL}/tenders`);
+    const data = await response.json();
 
-const recommendationsData = [
-  { title: 'Объединение закупок', description: 'Объединить закупки медицинского оборудования для 5 больниц', type: 'success' },
-  { title: 'Изменение сроков', description: 'Перенести сроки строительных тендеров на весенний период', type: 'warning' },
-];
-
-function loadProcureData() {
-  tendersData = staticTendersData;
-  loadTendersTable();
-  loadAnomalies();
-  loadRecommendations();
-  initProcureEventListeners();
+    if (data.success) {
+      procureData = data;
+      tendersData = data.tenders;
+      renderProcureStats(data.statistics, data.tenders);
+      renderTendersTable(data.tenders);
+      initProcureEventListeners();
+    } else {
+      showError('Ошибка загрузки тендеров');
+    }
+  } catch (error) {
+    console.error('Error loading tenders:', error);
+    showError('Не удалось загрузить данные тендеров');
+  }
 }
 
-function loadTendersTable() {
+/**
+ * Отрисовать статистику
+ */
+function renderProcureStats(stats, tenders) {
+  const totalTenders = document.getElementById('total-tenders');
+  const totalSum = document.getElementById('total-sum');
+  const activeOrgs = document.getElementById('active-organizations');
+  const avgSavings = document.getElementById('avg-savings');
+
+  if (totalTenders) totalTenders.textContent = tenders.length.toLocaleString('ru-RU');
+  if (totalSum) totalSum.textContent = formatTenderAmount(stats.totalAmount);
+  if (activeOrgs) {
+    const uniqueOrgs = new Set(tenders.map(t => t.organization)).size;
+    activeOrgs.textContent = uniqueOrgs;
+  }
+  if (avgSavings) avgSavings.textContent = stats.avgSavings + '%';
+}
+
+/**
+ * Форматировать сумму тендера
+ */
+function formatTenderAmount(amount) {
+  if (amount >= 1000000000) {
+    return (amount / 1000000000).toFixed(1) + ' млрд ₸';
+  } else if (amount >= 1000000) {
+    return (amount / 1000000).toFixed(0) + ' млн ₸';
+  }
+  return amount.toLocaleString('ru-RU') + ' ₸';
+}
+
+/**
+ * Отрисовать таблицу тендеров
+ */
+function renderTendersTable(tenders) {
   const tableBody = document.getElementById('tenders-table-body');
   if (!tableBody) return;
+
   tableBody.innerHTML = '';
 
-  tendersData.forEach(tender => {
+  tenders.forEach(tender => {
     const row = document.createElement('div');
     row.className = 'table-row';
+    row.dataset.tenderId = tender.id;
+
+    const deadlineDate = new Date(tender.deadline);
+    const now = new Date();
+    const daysLeft = Math.ceil((deadlineDate - now) / (1000 * 60 * 60 * 24));
+
     row.innerHTML = `
-      <div class="table-cell" style="width: 30%;">
+      <div class="table-cell" style="width: 35%;">
         <div class="tender-title">${tender.title}</div>
-        <div class="tender-org">${tender.organization}</div>
+        <div class="tender-org">
+          <i class="fas fa-building"></i> ${tender.organization}
+        </div>
+        <div class="tender-category">
+          <span class="category-badge">${tender.categoryName}</span>
+        </div>
       </div>
       <div class="table-cell" style="width: 15%;">
-        <div class="tender-amount">${tender.amount}</div>
+        <div class="tender-amount">${formatTenderAmount(tender.amount)}</div>
       </div>
       <div class="table-cell" style="width: 15%;">
-        <div class="tender-date">${tender.date}</div>
+        <div class="tender-deadline">
+          <div class="deadline-date">${formatDateShort(tender.deadline)}</div>
+          <div class="deadline-days ${daysLeft < 7 ? 'urgent' : ''}">${daysLeft > 0 ? daysLeft + ' дн.' : 'Завершен'}</div>
+        </div>
       </div>
       <div class="table-cell" style="width: 15%;">
         <div class="tender-status status-${tender.status}">
           ${tender.status === 'active' ? 'Активен' : tender.status === 'completed' ? 'Завершен' : 'Отменен'}
         </div>
       </div>
-      <div class="table-cell" style="width: 15%;">
-        <div class="tender-risk risk-${tender.risk}">${tender.riskScore}%</div>
-      </div>
-      <div class="table-cell" style="width: 10%;">
+      <div class="table-cell" style="width: 20%;">
         <div class="table-actions">
-          <button class="action-btn"><i class="fas fa-eye"></i></button>
+          <button class="action-btn view-btn" title="Подробнее" data-tender-id="${tender.id}">
+            <i class="fas fa-eye"></i>
+          </button>
+          <button class="action-btn ai-analyze-btn" title="AI Анализ рисков" data-tender-id="${tender.id}">
+            <i class="fas fa-robot"></i>
+          </button>
         </div>
       </div>
     `;
+
     tableBody.appendChild(row);
   });
+
+  // Добавляем обработчики на кнопки
+  tableBody.querySelectorAll('.view-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const tenderId = btn.dataset.tenderId;
+      showTenderDetails(tenderId);
+    });
+  });
+
+  tableBody.querySelectorAll('.ai-analyze-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const tenderId = btn.dataset.tenderId;
+      analyzeTenderWithAI(tenderId, btn);
+    });
+  });
+
+  // Обновляем счетчик
+  const shownCount = document.getElementById('shown-count');
+  const totalCount = document.getElementById('total-count');
+  if (shownCount) shownCount.textContent = tenders.length;
+  if (totalCount) totalCount.textContent = tenders.length;
 }
 
-function loadAnomalies() {
-  const list = document.getElementById('anomalies-list');
-  if (!list) return;
-  list.innerHTML = anomaliesData.map(a => `
-    <div class="analysis-item ${a.type}">
-      <div class="analysis-item-title">
-        <i class="fas fa-${a.type === 'warning' ? 'exclamation-triangle' : 'check-circle'}"></i>
-        ${a.title}
+/**
+ * Форматировать дату коротко
+ */
+function formatDateShort(isoString) {
+  const date = new Date(isoString);
+  return date.toLocaleDateString('ru-RU', { day: '2-digit', month: '2-digit', year: 'numeric' });
+}
+
+/**
+ * Показать детали тендера
+ */
+function showTenderDetails(tenderId) {
+  const tender = tendersData.find(t => t.id === tenderId);
+  if (!tender) return;
+
+  showModal(tender.title, `
+    <div class="tender-details-modal">
+      <div class="tender-info-grid">
+        <div class="tender-info-item">
+          <div class="info-label"><i class="fas fa-building"></i> Организация</div>
+          <div class="info-value">${tender.organization}</div>
+        </div>
+        <div class="tender-info-item">
+          <div class="info-label"><i class="fas fa-tags"></i> Категория</div>
+          <div class="info-value">${tender.categoryName}</div>
+        </div>
+        <div class="tender-info-item">
+          <div class="info-label"><i class="fas fa-tenge-sign"></i> Сумма</div>
+          <div class="info-value tender-amount">${formatTenderAmount(tender.amount)}</div>
+        </div>
+        <div class="tender-info-item">
+          <div class="info-label"><i class="fas fa-map-marker-alt"></i> Регион</div>
+          <div class="info-value">${tender.region}</div>
+        </div>
       </div>
-      <div class="analysis-item-text">${a.description}</div>
-    </div>
-  `).join('');
-}
 
-function loadRecommendations() {
-  const list = document.getElementById('recommendations-list');
-  if (!list) return;
-  list.innerHTML = recommendationsData.map(r => `
-    <div class="analysis-item ${r.type}">
-      <div class="analysis-item-title">
-        <i class="fas fa-lightbulb"></i>
-        ${r.title}
+      <div class="tender-description">
+        <h4><i class="fas fa-file-alt"></i> Описание</h4>
+        <p>${tender.description}</p>
       </div>
-      <div class="analysis-item-text">${r.description}</div>
+
+      <div class="tender-dates">
+        <h4><i class="fas fa-calendar-alt"></i> Сроки</h4>
+        <div class="dates-grid">
+          <div class="date-item">
+            <span class="date-label">Дата публикации:</span>
+            <span class="date-value">${formatDateShort(tender.publishDate)}</span>
+          </div>
+          <div class="date-item">
+            <span class="date-label">Прием заявок до:</span>
+            <span class="date-value">${formatDateShort(tender.deadline)}</span>
+          </div>
+          <div class="date-item">
+            <span class="date-label">Начало работ:</span>
+            <span class="date-value">${formatDateShort(tender.executionStart)}</span>
+          </div>
+          <div class="date-item">
+            <span class="date-label">Окончание работ:</span>
+            <span class="date-value">${formatDateShort(tender.executionEnd)}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tender-contact">
+        <h4><i class="fas fa-phone"></i> Контакты</h4>
+        <p>${tender.contact}</p>
+      </div>
     </div>
-  `).join('');
+  `, [
+    { text: 'AI Анализ рисков', type: 'primary', action: 'ai-analyze', tenderId: tender.id },
+    { text: 'Закрыть', type: 'secondary', action: 'close' }
+  ]);
+
+  // Добавляем обработчик для кнопки AI анализа в модальном окне
+  setTimeout(() => {
+    const aiBtn = document.querySelector('[data-action="ai-analyze"]');
+    if (aiBtn) {
+      aiBtn.addEventListener('click', () => {
+        closeModal();
+        const tableBtn = document.querySelector(`.ai-analyze-btn[data-tender-id="${tender.id}"]`);
+        analyzeTenderWithAI(tender.id, tableBtn);
+      });
+    }
+  }, 100);
 }
 
+/**
+ * AI Анализ тендера
+ */
+async function analyzeTenderWithAI(tenderId, buttonElement) {
+  const tender = tendersData.find(t => t.id === tenderId);
+  if (!tender) return;
+
+  // Отключаем кнопку и показываем загрузку
+  if (buttonElement) {
+    buttonElement.disabled = true;
+    buttonElement.innerHTML = '<div class="loading-spinner" style="width:14px;height:14px;border-width:2px;"></div>';
+  }
+
+  showNotification('AI анализирует тендер...', 'info');
+
+  try {
+    const response = await fetch(`${API_BASE_URL}/tenders/${tenderId}/ai-analyze`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      showAIAnalysisModal(tender, data);
+    } else {
+      showError('Ошибка анализа: ' + (data.error || 'Неизвестная ошибка'));
+    }
+  } catch (error) {
+    console.error('AI analysis error:', error);
+    showError('Не удалось выполнить AI анализ');
+  } finally {
+    if (buttonElement) {
+      buttonElement.disabled = false;
+      buttonElement.innerHTML = '<i class="fas fa-robot"></i>';
+    }
+  }
+}
+
+/**
+ * Показать модальное окно с AI анализом
+ */
+function showAIAnalysisModal(tender, analysisData) {
+  const { analysis, details } = analysisData;
+  const riskLevel = details?.riskLevel || 'unknown';
+  const riskScore = details?.riskScore || 0;
+
+  const riskColors = {
+    low: '#22c55e',
+    medium: '#f59e0b',
+    high: '#ef4444',
+    unknown: '#9ca3af'
+  };
+
+  const riskLabels = {
+    low: 'Низкий',
+    medium: 'Средний',
+    high: 'Высокий',
+    unknown: 'Не определен'
+  };
+
+  let risksHtml = '';
+  if (details?.risks?.length > 0) {
+    risksHtml = `
+      <div class="analysis-section risks-section">
+        <h4><i class="fas fa-exclamation-triangle" style="color: #ef4444;"></i> Выявленные риски</h4>
+        ${details.risks.map(r => `
+          <div class="risk-item ${r.severity}">
+            <div class="risk-title">${r.title}</div>
+            <div class="risk-description">${r.description}</div>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  let warningsHtml = '';
+  if (details?.warnings?.length > 0) {
+    warningsHtml = `
+      <div class="analysis-section warnings-section">
+        <h4><i class="fas fa-exclamation-circle" style="color: #f59e0b;"></i> Предупреждения</h4>
+        ${details.warnings.map(w => `
+          <div class="warning-item">
+            <div class="warning-title">${w.title}</div>
+            <div class="warning-description">${w.description}</div>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  let recommendationsHtml = '';
+  if (details?.recommendations?.length > 0) {
+    recommendationsHtml = `
+      <div class="analysis-section recommendations-section">
+        <h4><i class="fas fa-lightbulb" style="color: #22c55e;"></i> Рекомендации</h4>
+        ${details.recommendations.map(r => `
+          <div class="recommendation-item">
+            <div class="rec-title">${r.title}</div>
+            <div class="rec-description">${r.description}</div>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  showModal(`AI Анализ: ${tender.title}`, `
+    <div class="ai-analysis-modal">
+      <div class="risk-score-header" style="background: linear-gradient(135deg, ${riskColors[riskLevel]}22, ${riskColors[riskLevel]}11); border-left: 4px solid ${riskColors[riskLevel]}; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+        <div style="display: flex; align-items: center; gap: 20px;">
+          <div style="text-align: center;">
+            <div style="font-size: 48px; font-weight: 700; color: ${riskColors[riskLevel]};">${riskScore}%</div>
+            <div style="font-size: 14px; color: var(--gray);">Уровень риска</div>
+          </div>
+          <div style="flex: 1;">
+            <div style="font-size: 18px; font-weight: 600; color: ${riskColors[riskLevel]}; margin-bottom: 5px;">
+              ${riskLabels[riskLevel]} риск
+            </div>
+            <div style="font-size: 14px; color: var(--gray);">
+              ${tender.categoryName} | ${formatTenderAmount(tender.amount)}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ai-response-section" style="background: #f8fafc; padding: 20px; border-radius: 8px; margin-bottom: 20px;">
+        <h4 style="margin-bottom: 15px; display: flex; align-items: center; gap: 8px;">
+          <i class="fas fa-robot" style="color: var(--primary);"></i>
+          Заключение AI
+        </h4>
+        <div class="ai-response-text" style="line-height: 1.7;">
+          ${parseMarkdown(analysis)}
+        </div>
+      </div>
+
+      ${risksHtml}
+      ${warningsHtml}
+      ${recommendationsHtml}
+
+      <div class="analysis-footer" style="margin-top: 20px; padding-top: 15px; border-top: 1px solid var(--gray-light); font-size: 12px; color: var(--gray);">
+        <i class="fas fa-info-circle"></i>
+        Анализ выполнен ${analysisData.source === 'ai' ? 'с использованием AI' : 'на основе локальных правил'}
+        | ${new Date().toLocaleString('ru-RU')}
+      </div>
+    </div>
+  `, [
+    { text: 'Закрыть', type: 'secondary', action: 'close' }
+  ]);
+}
+
+/**
+ * Инициализация обработчиков событий для AI-Procure
+ */
 function initProcureEventListeners() {
+  // Фильтр по категории
+  const categoryFilter = document.getElementById('category-filter');
+  if (categoryFilter) {
+    categoryFilter.addEventListener('change', applyTenderFilters);
+  }
+
+  // Поиск
+  const searchInput = document.getElementById('tender-search');
+  if (searchInput) {
+    searchInput.addEventListener('input', debounce(applyTenderFilters, 300));
+  }
+
+  // Кнопка применения фильтров
   document.getElementById('apply-filters')?.addEventListener('click', () => {
+    applyTenderFilters();
     showNotification('Фильтры применены', 'success');
   });
+}
 
-  document.getElementById('ai-analyze')?.addEventListener('click', () => {
-    showNotification('AI анализ запущен...', 'info');
-    setTimeout(() => showNotification('AI анализ завершен', 'success'), 2000);
-  });
+/**
+ * Применить фильтры к тендерам
+ */
+function applyTenderFilters() {
+  if (!procureData) return;
+
+  const categoryFilter = document.getElementById('category-filter')?.value || 'all';
+  const searchQuery = document.getElementById('tender-search')?.value?.toLowerCase() || '';
+
+  let filtered = [...procureData.tenders];
+
+  // Фильтр по категории
+  if (categoryFilter !== 'all') {
+    filtered = filtered.filter(t => t.category === categoryFilter);
+  }
+
+  // Фильтр по поиску
+  if (searchQuery) {
+    filtered = filtered.filter(t =>
+      t.title.toLowerCase().includes(searchQuery) ||
+      t.organization.toLowerCase().includes(searchQuery) ||
+      t.description.toLowerCase().includes(searchQuery)
+    );
+  }
+
+  renderTendersTable(filtered);
+}
+
+/**
+ * Debounce функция
+ */
+function debounce(func, wait) {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
 }
 
 // ===== AI FUNCTIONS =====
